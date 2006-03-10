@@ -1,0 +1,9 @@
+# Logfile created on Fri Mar 10 14:59:20 EST 2006 by logger.rb/1.5.2.7
+[10/Mar/2006:14:59:20 :: 339] starting
+[10/Mar/2006:14:59:21 :: 339] Dispatcher failed to catch:  (Interrupt)
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:597:in `each'
+  /usr/local/lib/ruby/site_ruby/1.8/fcgi.rb:597:in `each_cgi'
+  /usr/local/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/fcgi_handler.rb:52:in `process!'
+  /usr/local/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/fcgi_handler.rb:22:in `process!'
+  public/dispatch.fcgi:24
+killed by this error
