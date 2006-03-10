@@ -1,7 +1,18 @@
 <h1>Editing ticket</h1>
 
 <%= start_form_tag :action => 'update', :id => @ticket %>
-  <%= render :partial => 'form' %>
+	<p><label for="ticket_user_id">Assigned To:</label>
+	<%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' -%>
+
+	<p><label for="ticket_client_id">Client:</label>
+	<%= @client %></p>
+
+	<p><label for="ticket_description">Description:</label><br />
+	<%= text_area 'ticket', 'description'  %></p>
+
+	<p><label for="ticket_state_id">Status:</label>
+	<%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%>
+
   <%= submit_tag 'Edit' %>
 <%= end_form_tag %>
 

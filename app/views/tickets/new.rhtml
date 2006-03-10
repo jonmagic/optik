@@ -1,8 +1,19 @@
 <h1>New ticket</h1>
 
 <%= start_form_tag :action => 'create' %>
-  <%= render :partial => 'form' %>
+	<p><label for="ticket_user_id">Assigned To:</label>
+	<%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' -%>
+
+	<p><label for="ticket_client_id">Client:</label>
+	<%= collection_select 'ticket', 'client_id', @clients, 'id', 'nickname' -%>
+
+	<p><label for="ticket_description">Description:</label><br />
+	<%= text_area 'ticket', 'description'  %></p>
+
+	<p><label for="ticket_state_id">Status:</label>
+	<%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%>
+
   <%= submit_tag "Create" %>
 <%= end_form_tag %>
-
+<br />
 <%= link_to 'Back', :action => 'list' %>
