@@ -51,3 +51,11 @@ end
 # end
 
 # Include your application configuration below
+
+
+module LoginEngine
+  config :salt, "bluemonkeysatemylunch"
+  config :use_email_notification, false  
+end
+
+Engines.start :login

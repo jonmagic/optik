@@ -50,9 +50,32 @@ CREATE TABLE `schema_info` (
 
 /*!40000 ALTER TABLE `schema_info` DISABLE KEYS */;
 LOCK TABLES `schema_info` WRITE;
-INSERT INTO `schema_info` VALUES (1);
+INSERT INTO `schema_info` VALUES (2);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `schema_info` ENABLE KEYS */;
+
+--
+-- Table structure for table `states`
+--
+
+DROP TABLE IF EXISTS `states`;
+CREATE TABLE `states` (
+  `id` int(11) NOT NULL auto_increment,
+  `description` varchar(255) default NULL,
+  `priority` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `states`
+--
+
+
+/*!40000 ALTER TABLE `states` DISABLE KEYS */;
+LOCK TABLES `states` WRITE;
+INSERT INTO `states` VALUES (1,'Pending',1),(2,'In Progress',2),(3,'Waiting',3),(4,'Scheduled',4),(5,'Completed',5);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `states` ENABLE KEYS */;
 
 --
 -- Table structure for table `tickets`
@@ -64,7 +87,7 @@ CREATE TABLE `tickets` (
   `description` varchar(255) default NULL,
   `user_id` int(11) default NULL,
   `client_id` int(11) default NULL,
-  `status_id` int(11) default NULL,
+  `state_id` int(11) default NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
