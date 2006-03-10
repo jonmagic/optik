@@ -1,0 +1,8 @@
+<% for column in Ticket.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @ticket.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @ticket %> |
+<%= link_to 'Back', :action => 'list' %>
