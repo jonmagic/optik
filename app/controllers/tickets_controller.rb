@@ -18,7 +18,6 @@ class TicketsController < ApplicationController
   def new
     @users = User.find(:all)
     @states = State.find(:all)
-    @clients = Client.find(:all)
     @ticket = Ticket.new
   end
 
@@ -35,9 +34,7 @@ class TicketsController < ApplicationController
   def edit
     @users = User.find(:all)
     @states = State.find(:all)
-    @clients = Client.find(:all)
     @ticket = Ticket.find(params[:id])
-    @client = @ticket.client_id
   end
 
   def update
