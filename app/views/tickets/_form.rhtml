@@ -4,9 +4,6 @@
 <p><label for="ticket_user_id">Assigned To:</label>
 <%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' -%>
 
-<p><label for="ticket_client_id">Client:</label>
-<%= collection_select 'ticket', 'client_id', @clients, 'id', 'nickname' -%>
-
 <p><label for="ticket_description">Description: </label>
 <%= text_field 'ticket', 'description'  %></p>
 

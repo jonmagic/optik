@@ -1,6 +1,5 @@
 class TicketsController < ApplicationController
   before_filter :login_required
-  model :ticket, :user, :client, :state
   
   def index
     list
