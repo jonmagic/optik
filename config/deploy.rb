@@ -11,7 +11,7 @@
 # form the root of the application path.
 
 set :application, "optik"
-set :repository, "http://svn.yourhost.com/#{application}/trunk"
+set :repository, "https://store.sabretechllc.com/public/jonmagic/optik/trunk"
 
 # =============================================================================
 # ROLES
@@ -22,16 +22,16 @@ set :repository, "http://svn.yourhost.com/#{application}/trunk"
 # be used to single out a specific subset of boxes in a particular role, like
 # :primary => true.
 
-role :web, "www01.example.com", "www02.example.com"
-role :app, "app01.example.com", "app02.example.com", "app03.example.com"
-role :db,  "db01.example.com", :primary => true
-role :db,  "db02.example.com", "db03.example.com"
+role :web, "www.sabretechllc.com"
+role :app, "www.sabretechllc.com"
+role :db,  "www.sabretechllc.com"
+
 
 # =============================================================================
 # OPTIONAL VARIABLES
 # =============================================================================
-# set :deploy_to, "/path/to/app" # defaults to "/u/apps/#{application}"
-# set :user, "flippy"            # defaults to the currently logged in user
+set :deploy_to, "/home/sabretec/apps" # defaults to "/u/apps/#{application}"
+set :user, "sabretec"            # defaults to the currently logged in user
 # set :scm, :darcs               # defaults to :subversion
 # set :svn, "/path/to/svn"       # defaults to searching the PATH
 # set :darcs, "/path/to/darcs"   # defaults to searching the PATH
@@ -120,3 +120,13 @@ task :long_deploy do
   restart
   enable_web
 end
+
+desc "This task sets up all my particular symlinks"
+task :after_symlink do
+  run "cp ~/capistrano/optik/config/database.yml #{release_path}/config/"
+end
+
+desc "Don't restart the web server"
+  task :restart, :roles => :app do
+    run ""
+  end

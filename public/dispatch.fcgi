@@ -1,4 +1,4 @@
-#!/usr/local/bin/ruby
+#!/usr/bin/env ruby
 #
 # You may specify the path to the FastCGI crash log (a log of unhandled
 # exceptions which forced the FastCGI instance to exit, great for debugging)
@@ -18,6 +18,8 @@
 #   # Custom log path, normal GC behavior.
 #   RailsFCGIHandler.process! '/var/log/myapp_fcgi_crash.log'
 #
+require "rubygems"
+require_gem 'fcgi'
 require File.dirname(__FILE__) + "/../config/environment"
 require 'fcgi_handler'
 
