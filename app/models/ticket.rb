@@ -1,5 +1,6 @@
 class Ticket < ActiveRecord::Base
   acts_as_taggable
-  has_one :state
-  has_one :user
+  belongs_to :user
+  belongs_to :state
+  
 end

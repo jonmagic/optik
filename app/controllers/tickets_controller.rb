@@ -7,7 +7,15 @@ class TicketsController < ApplicationController
   end
 
   def list
-    @ticket_pages, @tickets = paginate :tickets, :per_page => 10
+    @tickets_pending = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "1" )
+    @tickets_inprogress = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "2" )
+    @tickets_waiting = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "3" )
+    @tickets_scheduled = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "4" )
+    @tickets_completed = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "5" )        
+  end
+
+  def list_pending
+    @tickets = Ticket.find(:all)
   end
 
   def show
@@ -23,6 +31,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(params[:ticket])
     if @ticket.save
+      @ticket.tag(params[:tags], :clear => true)
       flash[:notice] = 'Ticket was successfully created.'
       redirect_to :action => 'list'
     else
@@ -39,6 +48,7 @@ class TicketsController < ApplicationController
   def update
     @ticket = Ticket.find(params[:id])
     if @ticket.update_attributes(params[:ticket])
+      @ticket.tag(params[:tags], :clear => true)      
       flash[:notice] = 'Ticket was successfully updated.'
       redirect_to :action => 'show', :id => @ticket
     else

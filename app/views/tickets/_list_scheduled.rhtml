@@ -1,0 +1,11 @@
+<h2>Scheduled Tickets</h2>
+<table id="table-scheduled" class="table">
+	<tr class='tableheader'>
+		<th width="50%">Description</th>
+		<th>Date Created</th>
+		<th>Date Updated</th>
+	</tr>	
+<% for @ticket in @tickets_scheduled %>
+	<%= render :partial => "list" %>
+<% end %>
+</table>

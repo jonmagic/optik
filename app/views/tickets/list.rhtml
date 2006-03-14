@@ -1,27 +1,12 @@
-<h1>Listing tickets</h1>
-
-<table>
-  <tr>
-  <% for column in Ticket.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
-  </tr>
-  
-<% for ticket in @tickets %>
-  <tr>
-  <% for column in Ticket.content_columns %>
-    <td><%=h ticket.send(column.name) %></td>
-  <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => ticket %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => ticket %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => ticket }, :confirm => 'Are you sure?' %></td>
-  </tr>
-<% end %>
-</table>
-
-<%= link_to 'Previous page', { :page => @ticket_pages.current.previous } if @ticket_pages.current.previous %>
-<%= link_to 'Next page', { :page => @ticket_pages.current.next } if @ticket_pages.current.next %> 
-
-<br />
-
-<%= link_to 'New ticket', :action => 'new' %>
+<ul id="navigation-tickets" class="inline">
+	<li><a href="javascript:Effect.Combo('list_pending');">Pending Tickets</a></li>
+	<li><a href="javascript:Effect.Combo('list_inprogress');">In-Progress Tickets</a></li>
+	<li><a href="javascript:Effect.Combo('list_waiting');">Waiting Tickets</a></li>
+	<li><a href="javascript:Effect.Combo('list_scheduled');">Scheduled Tickets</a></li>		
+</ul>
+<div id="content">
+	<div id="list_pending" style="display:none;"><%= render :partial => "list_pending" %></div>
+	<div id="list_inprogress" style=""><%= render :partial => "list_inprogress" %></div>
+	<div id="list_waiting" style="display:none;"><%= render :partial => "list_waiting" %></div>
+	<div id="list_scheduled" style="display:none;"><%= render :partial => "list_scheduled" %></div>
+</div>

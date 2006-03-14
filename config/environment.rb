@@ -52,11 +52,11 @@ end
 
 # Include your application configuration below
 
-require_gem 'acts_as_taggable'
-
 module LoginEngine
   config :salt, "bluemonkeysatemylunch"
   config :use_email_notification, false  
 end
 
 Engines.start :login
+
+require_gem 'acts_as_taggable'

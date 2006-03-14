@@ -1,0 +1,104 @@
+/************ Universal Stuff **********/
+body {
+	margin:0;
+	padding:0;
+	background-color: #fff; 
+	color: #333;
+
+}
+
+body, p, ol, ul, td {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:   90%;
+}
+
+body, ol, ul, td {
+	margin:0;
+	padding:0;
+}
+
+h1, h2, h3 {
+}
+
+h2 {
+	margin:15px 0 5px 0;
+	padding:0;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000;text-decoration:none; }
+a:hover { color: #fff; background-color:#000; }
+
+.hidden {
+	display: none;
+}
+
+/************* Jon's General Stuff **********/
+
+.floatleft {
+	float: left;
+}
+
+.floatright {
+	float: right;
+}
+
+ul.inline li {
+	display:inline;
+}
+
+/************ Nav stuff **************/
+
+ul#navigation {
+	background-color: #eee;
+	padding: 10px;
+}
+
+ul#navigation li {
+	padding: 0 20px 0 20px;
+}
+
+#navigation a {
+}
+
+ul#navigation-tickets {
+	background-color: #f3f3f3;
+	padding: 5px 10px;
+}
+
+ul#navigation-tickets li {
+	padding: 0 20px 0 20px;
+}
+
+
+/*********** Content *************/
+#content {
+	margin-right: 300px;
+	padding: 0 20px;
+}
+
+/*********** Tables *************/
+
+.table {
+	width: 100%;
+}
+
+.table th {
+	font-size: .9em;
+}
+
+.table tr, .table td, .table {
+	margin:0;
+	padding:0;
+	text-align: left;
+	line-height: 22px;
+}
+
+.tableheader {
+	background-color: #eee;
+}

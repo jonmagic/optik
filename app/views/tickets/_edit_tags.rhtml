@@ -1,7 +1,6 @@
-<h2>Editing ticket</h2>
-
 <%= start_form_tag :action => 'update', :id => @ticket %>
-	<%= render :partial => "form" %>
+
+<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %>
 
   <%= submit_tag 'Edit' %>
 <%= end_form_tag %>

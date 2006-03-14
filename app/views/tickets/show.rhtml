@@ -1,8 +1,15 @@
-<% for column in Ticket.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @ticket.send(column.name) %>
-</p>
-<% end %>
-
-<%= link_to 'Edit', :action => 'edit', :id => @ticket %> |
-<%= link_to 'Back', :action => 'list' %>
+<ul id="navigation-tickets" class="inline">
+	<li><%= link_to "Edit this ticket", :action => 'edit', :id => @ticket %></li>
+</ul>
+<div id="content">
+	<h3>Ticket# <%= @ticket.id %></h3>
+	<p><b>Assigned To:</b> <%= @ticket.user.firstname %> <%= @ticket.user.lastname %></p>
+	<p><b>Ticket Status:</b> <%= @ticket.state.description %></p>
+	<p><b>Description:</b> <%= @ticket.description %></p>
+	<p><b>Tags:</b> <%= @ticket.tag_names.join(", ") %> - <a href="javascript:Effect.Combo('edit_tags');">Edit Tags</a></p>
+	<div id="edit_tags" style="display:none;">
+		<%= render :partial => "edit_tags" %>
+	</div>
+	<h4>Notes</h4>
+	
+</div>

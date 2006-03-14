@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="en-us" />
+		
+		<title>Opportunity Tickets</title>
+		
+		<meta name="ROBOTS" content="ALL" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<meta name="MSSmartTagsPreventParsing" content="true" />
+		<meta name="Copyright" content="(c) 2005 Copyright content:  Copyright design: Jonathan Hoyt" />
+		<!-- (c) Copyright 2006 by SabreTech Consulting LLC All Rights Reserved. -->
+		
+		<meta name="Keywords" content="stuff" />
+		<meta name="Description" content="stuff" />
+
+ 		<%= stylesheet_link_tag 'application' %>
+
+        <%= javascript_include_tag "prototype" %> 		
+        <%= javascript_include_tag "effects" %>
+        <%= javascript_include_tag "ticketeffects" %>
+		
+	</head>
+	
+<body>
+
+<ul id="navigation" class="inline">
+	<li><%= link_to 'New Ticket', :action => 'new' %></li>
+	<li><%= link_to 'List Tickets', :action => 'list' %></li>
+	<li>Welcome <%= session[:user].firstname %>, <%= link_to 'Logout', :controller => 'user', :action => 'logout' %></li>
+</ul>
+
+<%= @content_for_layout %>
+
+
+</body>
+</html>

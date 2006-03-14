@@ -1,0 +1,11 @@
+<h2>Pending Tickets</h2>
+<table id="table-pending" class="table">
+	<tr class='tableheader'>
+		<th width="50%">Description</th>
+		<th>Date Created</th>
+		<th>Date Updated</th>
+	</tr>	
+<% for @ticket in @tickets_pending %>
+	<%= render :partial => "list" %>
+<% end %>
+</table>
