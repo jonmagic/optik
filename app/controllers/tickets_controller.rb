@@ -13,12 +13,30 @@ class TicketsController < ApplicationController
     @tickets_scheduled = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "4" )
     @tickets_completed = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "5" )        
   end
-
-  def list_pending
-    @tickets = Ticket.find(:all)
+  
+  def overview
+    @tickets_pending = Ticket.find_all_by_state_id( "1" )
+    @tickets_inprogress = Ticket.find_all_by_state_id( "2" )
+    @tickets_waiting = Ticket.find_all_by_state_id( "3" )
+    @tickets_scheduled = Ticket.find_all_by_state_id( "4" )
+    @tickets_completed = Ticket.find_all_by_state_id( "5" )
+  end
+  
+  def archived
+    @archived_pages, @tickets_archived = paginate :tickets, :conditions => ['state_id = ?', "6"], :order => 'created_at ASC', :per_page => 50
+  end
+  
+  def advanced_search
+    
+  end
+  
+  def search   
+    @tickets = Ticket.search(params[:query])
   end
 
   def show
+    @users = User.find(:all)
+    @states = State.find(:all)    
     @ticket = Ticket.find(params[:id])
   end
 
@@ -60,4 +78,11 @@ class TicketsController < ApplicationController
     Ticket.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
+
+  def add_note
+    Ticket.find(params[:id]).notes.create(params[:note])
+    flash[:notice] = "Added Your Note."
+    redirect_to :action => "show", :id => params[:id]
+  end
+
 end

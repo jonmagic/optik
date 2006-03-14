@@ -1,0 +1,8 @@
+<h2>Archived Tickets</h2>
+<table id="table-archived" class="table">
+<%= render :partial => "tableheader" %>	
+<% for @ticket in @tickets_archived %>
+	<%= render :partial => "list" %>
+<% end %>
+</table>
+<p class="paginate">Older Tickets: <%= pagination_links @archived_pages, :params => { :action => @controller.action_name } %></p>

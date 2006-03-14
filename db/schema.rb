@@ -2,11 +2,19 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 7) do
 
   create_table "engine_schema_info", :id => false, :force => true do |t|
     t.column "engine_name", :string
     t.column "version", :integer
+  end
+
+  create_table "notes", :force => true do |t|
+    t.column "content", :text
+    t.column "ticket_id", :integer
+    t.column "user_id", :integer
+    t.column "created_at", :datetime
+    t.column "updated_at", :datetime
   end
 
   create_table "states", :force => true do |t|
@@ -26,7 +34,6 @@ ActiveRecord::Schema.define(:version => 6) do
   create_table "tickets", :force => true do |t|
     t.column "description", :string
     t.column "user_id", :integer
-    t.column "client_id", :integer
     t.column "state_id", :integer
     t.column "created_at", :datetime
     t.column "updated_at", :datetime

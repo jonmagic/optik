@@ -26,15 +26,16 @@
 	</head>
 	
 <body>
-
+<h1 id="header">Opportunity Tickets</h1>
 <ul id="navigation" class="inline">
 	<li><%= link_to 'New Ticket', :action => 'new' %></li>
-	<li><%= link_to 'List Tickets', :action => 'list' %></li>
+	<li><%= link_to 'My Tickets', :action => 'list' %></li>
+	<li><%= link_to 'Overview', :action => 'overview' %></li>
+	<li><%= link_to 'Archived', :action => 'archived' %></li>	
 	<li>Welcome <%= session[:user].firstname %>, <%= link_to 'Logout', :controller => 'user', :action => 'logout' %></li>
 </ul>
 
 <%= @content_for_layout %>
-
 
 </body>
 </html>

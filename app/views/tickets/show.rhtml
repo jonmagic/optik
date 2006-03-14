@@ -1,15 +1,25 @@
 <ul id="navigation-tickets" class="inline">
-	<li><%= link_to "Edit this ticket", :action => 'edit', :id => @ticket %></li>
 </ul>
+<%= render :partial => "sidebar" %>
 <div id="content">
-	<h3>Ticket# <%= @ticket.id %></h3>
-	<p><b>Assigned To:</b> <%= @ticket.user.firstname %> <%= @ticket.user.lastname %></p>
-	<p><b>Ticket Status:</b> <%= @ticket.state.description %></p>
-	<p><b>Description:</b> <%= @ticket.description %></p>
-	<p><b>Tags:</b> <%= @ticket.tag_names.join(", ") %> - <a href="javascript:Effect.Combo('edit_tags');">Edit Tags</a></p>
-	<div id="edit_tags" style="display:none;">
-		<%= render :partial => "edit_tags" %>
+	<div id="ticket">
+		<h3>Ticket# <%= @ticket.id %></h3>
+		<%= start_form_tag :action => 'update', :id => @ticket %>
+		<p><b>Assigned To:</b> <%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' -%></p>
+		<p><b>Ticket Status:</b> <%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%></p>
+		<p><a href="javascript:Effect.Combo('current_description');javascript:Effect.Combo('new_description');"><b>Description: </b></a>
+			<span id="current_description"><%= @ticket.description %></span>
+			<div id="new_description" style="display:none;"><p><%= text_area 'ticket', 'description'  %></p></div>
+		</p>
+		<div id="edit_tags" class="floatright" style="display:none;">
+			<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %>
+		</div>
+		<p><b><a href="javascript:Effect.Combo('edit_tags');">Tags: </a></b><%= @ticket.tag_names.join(", ") %></p>
+		  <p><%= submit_tag 'Apply' %>    <%= submit_tag 'Save' %></p>
+		<%= end_form_tag %>
 	</div>
-	<h4>Notes</h4>
 	
+	<div id="notes">
+		<%= render :partial => "notes" %>
+	</div>
 </div>

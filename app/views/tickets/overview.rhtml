@@ -3,13 +3,13 @@
 	<li><a href="javascript:Effect.Combo('list_inprogress');">In-Progress Tickets</a></li>
 	<li><a href="javascript:Effect.Combo('list_waiting');">Waiting Tickets</a></li>
 	<li><a href="javascript:Effect.Combo('list_scheduled');">Scheduled Tickets</a></li>
-	<li><a href="javascript:Effect.Combo('list_completed');">Completed Tickets</a></li>	
+	<li><a href="javascript:Effect.Combo('list_completed');">Completed Tickets</a></li>		
 </ul>
 <%= render :partial => "sidebar" %>
 <div id="content">
-	<div id="list_pending" style="display:none;"><%= render :partial => "list_pending" %></div>
+	<div id="list_pending" style=""><%= render :partial => "list_pending" %></div>
 	<div id="list_inprogress" style=""><%= render :partial => "list_inprogress" %></div>
-	<div id="list_waiting" style="display:none;"><%= render :partial => "list_waiting" %></div>
-	<div id="list_scheduled" style="display:none;"><%= render :partial => "list_scheduled" %></div>
-	<div id="list_completed" style="display:none;"><%= render :partial => "list_completed" %></div>	
+	<div id="list_waiting" style=""><%= render :partial => "list_waiting" %></div>
+	<div id="list_scheduled" style=""><%= render :partial => "list_scheduled" %></div>
+	<div id="list_completed" style=""><%= render :partial => "list_completed" %></div>	
 </div>

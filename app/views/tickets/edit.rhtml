@@ -1,7 +1,13 @@
-<h2>Editing ticket</h2>
+<ul id="navigation-tickets" class="inline">
+	
+</ul>
+<%= render :partial => "sidebar" %>
+<div id="content">
+	<h2>Editing ticket</h2>
 
-<%= start_form_tag :action => 'update', :id => @ticket %>
-	<%= render :partial => "form" %>
+	<%= start_form_tag :action => 'update', :id => @ticket %>
+		<%= render :partial => "form" %>
 
-  <%= submit_tag 'Edit' %>
-<%= end_form_tag %>
+	  <%= submit_tag 'Edit' %>
+	<%= end_form_tag %>
+</div>

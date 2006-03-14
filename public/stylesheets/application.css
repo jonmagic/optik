@@ -17,12 +17,19 @@ body, ol, ul, td {
 	padding:0;
 }
 
-h1, h2, h3 {
+h1 {
+	margin:0;
+	padding: 10px;
 }
 
 h2 {
 	margin:15px 0 5px 0;
 	padding:0;
+}
+
+h3 {
+	margin:0;
+	padding:5px 10px;
 }
 
 pre {
@@ -57,6 +64,8 @@ ul.inline li {
 ul#navigation {
 	background-color: #eee;
 	padding: 10px;
+	border-top:1px dotted #bbb;
+	border-bottom:1px dotted #bbb;
 }
 
 ul#navigation li {
@@ -75,11 +84,33 @@ ul#navigation-tickets li {
 	padding: 0 20px 0 20px;
 }
 
+/*********** Sidebar **************/
+#sidebar {
+	width: 270px;
+	margin: 20px 30px 0 0;
+	border: 1px solid #ccc;
+	background-color: #eee
+}
+
+#sidebar h3 {
+	margin: 0;
+	padding: 10px 10px 0;
+}
+
+#sidebar p {
+	margin: 0;
+	padding: 5px 15px;
+}
+
 
 /*********** Content *************/
 #content {
 	margin-right: 300px;
-	padding: 0 20px;
+	padding: 0 28px;
+}
+
+.paginate {
+	border-top: 1px solid #ccc;
 }
 
 /*********** Tables *************/
@@ -100,5 +131,49 @@ ul#navigation-tickets li {
 }
 
 .tableheader {
+	background-color: #eee;
+}
+
+/*********** Show Page *************/
+
+#ticket {
+	margin: 20px 0 0 0;
+	border: 1px solid #ccc;
+}
+
+.insideh4link {
+	font-size: .8em;
+	font-weight: normal;
+}
+
+#ticket h3 {
+	background-color: #ccc;
+}
+
+#ticket p {
+	padding: 0 10px;
+}
+
+#edit_tags {
+	margin-right: 20px;
+}
+
+#notes h5 {
+	margin:0;
+	padding:.4em 0 .2em 0;
+}
+
+#notes p {
+	margin:.2em .4em;
+	padding:0;
+}
+
+.note {
+	margin: 0;
+	padding: 10px 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+.note:hover {
 	background-color: #eee;
 }

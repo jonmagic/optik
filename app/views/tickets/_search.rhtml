@@ -1,0 +1,22 @@
+<h3>Search</h3>
+<div id="search-all">
+	<%= start_form_tag :action => 'search' %>
+		<p><label for="search_descriptions"></label>
+		<%= text_field_tag('query') %></p>
+	  <p><%= submit_tag "Search" %></p>
+	<%= end_form_tag %>
+</div>
+<div id="search-specific" style="display:none;">
+	<%= start_form_tag :action => 'advanced_search' %>
+		<p id="search-number"><label for="search_descriptions">Ticket#</label>
+		<%= text_field_tag('number') %></p>
+		<p id="search-description"><label for="search_descriptions">Description:</label>
+		<%= text_field_tag('description') %></p>
+		<p id="search-tags"><label for="search_descriptions">Tags:</label>
+		<%= text_field_tag('tags') %></p>
+		<p id="search-notes"><label for="search_descriptions">Notes:</label>
+		<%= text_field_tag('notes') %></p>
+	  <p><%= submit_tag "Search" %></p>
+	<%= end_form_tag %>
+</div>
+<p><a href="javascript:Effect.Combo('search-all');javascript:Effect.Combo('search-specific');">Toggle Search</a></p>

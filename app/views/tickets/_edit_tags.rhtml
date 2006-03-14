@@ -1,6 +1,0 @@
-<%= start_form_tag :action => 'update', :id => @ticket %>
-
-<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %>
-
-  <%= submit_tag 'Edit' %>
-<%= end_form_tag %>

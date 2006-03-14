@@ -1,0 +1,13 @@
+<ul id="navigation-tickets" class="inline">
+
+</ul>
+<%= render :partial => "sidebar" %>
+<div id="content">
+	<h2>Search Results</h2>
+	<table id="table-search" class="table">
+		<%= render :partial => "tableheader" %>
+		<% for @ticket in @tickets %>
+			<%= render :partial => "list" %>
+		<% end %>
+	</table>
+</div>

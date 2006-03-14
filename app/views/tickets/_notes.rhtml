@@ -1,0 +1,11 @@
+<% for note in @ticket.notes %>
+	<div class="note">
+		<h5>Posted by <%= @ticket.user.firstname %> on <%= note.created_at.strftime "%h %d" %> at <%= note.created_at.strftime "%r" %></h5>
+		<p><%= textilize(note.content) %></p>
+	</div>
+<% end %>
+
+<p><a href="javascript:Effect.Combo('note_form2');">Add Note</a></p>
+<div id="note_form2" style="display:none;">
+	<%= render :partial => "note_form" %>
+</div>

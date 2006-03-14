@@ -1,5 +1,7 @@
 <tr>
-	<td><%= link_to truncate(@ticket.description, 80), :action => 'show', :id => @ticket %></td>
-	<td><%= @ticket.created_at.strftime "%D" %></td>
-	<td><%= @ticket.updated_at.strftime "%D" %></td>
+	<td><%= link_to truncate(@ticket.description, 60), :action => 'show', :id => @ticket %></td>
+	<td><%= @ticket.user.firstname %></td>
+	<td><%= @ticket.state.description %></td>
+	<td><%= @ticket.created_at.strftime "%h %d" %></td>
+	<td><%= @ticket.updated_at.strftime "%h %d" %></td>
 </tr>
