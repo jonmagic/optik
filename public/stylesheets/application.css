@@ -177,3 +177,12 @@ ul#navigation-tickets li {
 .note:hover {
 	background-color: #eee;
 }
+
+/************* User Controller *************/
+#user-login-box {
+	width: 400px;
+	margin: 100px auto;
+	border: 1px solid #ccc;
+	background-color: #eee;
+	padding: 20px;
+}
