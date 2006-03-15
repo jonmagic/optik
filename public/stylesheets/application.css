@@ -9,10 +9,10 @@ body {
 
 body, p, ol, ul, td {
 	font-family: verdana, arial, helvetica, sans-serif;
-	font-size:   90%;
+	font-size:   85%;
 }
 
-body, ol, ul, td {
+body, ol, td {
 	margin:0;
 	padding:0;
 }
@@ -80,6 +80,7 @@ h1#page_title {
 /************ Nav stuff **************/
 
 ul#navigation {
+	margin: 0;
 	background-color: #eee;
 	padding: 7px;
 	border-top:1px dotted #bbb;
@@ -94,6 +95,7 @@ ul#navigation li {
 }
 
 ul#navigation-tickets {
+	margin:0;
 	background-color: #f3f3f3;
 	padding: 5px 7px;
 	border-top:1px dotted #ccc;
