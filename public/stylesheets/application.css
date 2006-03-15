@@ -9,7 +9,7 @@ body {
 
 body, p, ol, ul, td {
 	font-family: verdana, arial, helvetica, sans-serif;
-	font-size:   85%;
+	font-size: .8em;
 }
 
 body, ol, td {
@@ -47,6 +47,10 @@ a:hover { color: #000; background-color:#abcdef; }
 
 .top_grey_border {
 	border-top:1px solid #bbb;
+}
+
+.addsomepadding {
+	padding: 0 10px;
 }
 
 a:link img {
@@ -145,7 +149,8 @@ ul#navigation-tickets li {
 }
 
 .table th {
-	font-size: .9em;
+	padding-left: 3px;
+	font-size: .8em;
 }
 
 .table tr, .table td, .table {

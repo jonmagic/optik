@@ -2,5 +2,5 @@
 	<td><%= link_to truncate(@ticket.description, 60), :action => 'show', :id => @ticket %></td>
 	<td><%= @ticket.user.firstname %></td>
 	<td><%= @ticket.state.description %></td>
-	<td><span style="font-size:.7em"><%= time_ago_in_words(@ticket.updated_at) %> ago</span></td>
+	<td><span><%= time_ago_in_words(@ticket.updated_at) %> ago</span></td>
 </tr>
