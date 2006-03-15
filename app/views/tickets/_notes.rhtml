@@ -1,7 +1,7 @@
 <% for note in @ticket.notes %>
 	<div class="note">
 		<h5><%= image_tag 'comment_blue.gif' %><%= note.user.firstname %> said this on <%= note.created_at.strftime "%h %d" %> at <%= note.created_at.strftime "%r" %></h5>
-		<p><%= note.content %></p>
+		<p><%= textilize(note.content) %></p>
 	</div>
 <% end %>
 <br />

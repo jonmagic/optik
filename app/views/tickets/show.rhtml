@@ -19,7 +19,7 @@
 		<p><b>Assigned To:</b> <%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' -%></p>
 		<p><b>Ticket Status:</b> <%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%></p>
 		<p><a href="javascript:Effect.Combo('current_description');javascript:Effect.Combo('new_description');"><b>Description: </b></a>
-			<span id="current_description"><%= @ticket.description %></span>
+			<span id="current_description"><%= textilize(@ticket.description) %></span>
 			<div id="new_description" style="display:none;"><p><%= text_area 'ticket', 'description'  %></p></div>
 		</p>
 		<div id="edit_tags" class="floatright" style="display:none;">
