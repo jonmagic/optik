@@ -58,5 +58,3 @@ module LoginEngine
 end
 
 Engines.start :login
-
-require_gem 'acts_as_taggable'
