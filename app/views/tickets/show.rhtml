@@ -1,5 +1,4 @@
 <ul id="navigation-tickets" class="inline">
-	<li>You are in: <b>Show Ticket</b></li>
 </ul>
 <%= render :partial => "sidebar" %>
 <div id="content">
@@ -16,7 +15,7 @@
 			<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %>
 		</div>
 		<p><b><a href="javascript:Effect.Combo('edit_tags');">Tags: </a></b><%= @ticket.tag_names.join(", ") %></p>
-		  <p><%= submit_tag 'Apply' %>    <%= submit_tag 'Save' %></p>
+		  <p><%= submit_tag 'Apply' %></p>
 		<%= end_form_tag %>
 	</div>
 	

@@ -1,0 +1,4 @@
+<h3>Tag Cloud:</h3>
+<p><% tag_cloud(@tagged_items, %w(x-small small medium large x-large)) do |tag, font_size| %>
+  <%= link_to (h("<#{tag}>"), tag_url_helper(:name => 'tag'), { :style => "font-size: #{font_size}" } ) -%>
+<% end %></p>
