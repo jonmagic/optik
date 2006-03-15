@@ -1,6 +1,17 @@
 <ul id="navigation-tickets" class="inline">
 </ul>
-<%= render :partial => "sidebar" %>
+<div id="sidebar" class="floatright">
+	<div class="sidebox">
+		<%= render :partial => "search" %>
+	</div>
+	<%= render :partial => "tagcloud" %>
+	<br />
+	<p class="top_grey_border"></p>
+	<p><%= image_tag 'comment_new.gif' %><a href="javascript:Effect.Combo('note_form2');">Add Note To Ticket</a></p>
+	<div id="note_form2" style="">
+		<%= render :partial => "note_form" %>
+	</div>
+</div>
 <div id="content">
 	<div id="ticket">
 		<h3>Ticket# <%= @ticket.id %></h3>
@@ -8,7 +19,7 @@
 		<p><b>Assigned To:</b> <%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' -%></p>
 		<p><b>Ticket Status:</b> <%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%></p>
 		<p><a href="javascript:Effect.Combo('current_description');javascript:Effect.Combo('new_description');"><b>Description: </b></a>
-			<span id="current_description"><%= @ticket.description %></span>
+			<span id="current_description"><%= textilize(@ticket.description) %></span>
 			<div id="new_description" style="display:none;"><p><%= text_area 'ticket', 'description'  %></p></div>
 		</p>
 		<div id="edit_tags" class="floatright" style="display:none;">

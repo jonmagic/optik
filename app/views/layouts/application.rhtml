@@ -26,15 +26,16 @@
 	</head>
 	
 <body>
-<h1 id="header" class="floatright">Opportunity Tickets</h1>
-<h1 id="page_title"><%= @page_title %></h1>
-<ul id="navigation" class="inline">
-	<li><%= link_to 'New Ticket', :action => 'new' %></li>
-	<li><%= link_to 'My Tickets', :action => 'list' %></li>
-	<li><%= link_to 'Overview', :action => 'overview' %></li>
-	<li><%= link_to 'Archived', :action => 'archived' %></li>	
-	<li>Welcome <%= session[:user].firstname %>, <%= link_to 'Logout', :controller => 'user', :action => 'logout' %></li>
-</ul>
+	<ul id="navigation" class="inline">
+		<li class="floatright">Welcome <%= session[:user].firstname %>, <%= link_to 'Logout', :controller => 'user', :action => 'logout' %></li>	
+		<li><%= image_tag 'page_new.gif' %><%= link_to 'New Ticket', :action => 'new' %></li>
+		<li><%= image_tag 'page_user.gif' %><%= link_to 'My Tickets', :action => 'list' %></li>
+		<li><%= image_tag 'tables.gif' %><%= link_to 'Overview', :action => 'overview' %></li>
+		<li><%= image_tag 'folder.gif' %><%= link_to 'Archived', :action => 'archived' %></li>	
+	</ul>	
+<h1 id="header" class="floatright">- Opportunity Tickets</h1>
+<h1 id="page_title">( <%= @page_title %> )</h1>
+
 
 	<%= @content_for_layout %>
 

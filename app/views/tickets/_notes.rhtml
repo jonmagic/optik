@@ -1,11 +1,13 @@
 <% for note in @ticket.notes %>
 	<div class="note">
-		<h5>Posted by <%= @ticket.user.firstname %> on <%= note.created_at.strftime "%h %d" %> at <%= note.created_at.strftime "%r" %></h5>
+		<h5><%= image_tag 'comment_blue.gif' %><%= @ticket.user.firstname %> said this on <%= note.created_at.strftime "%h %d" %> at <%= note.created_at.strftime "%r" %></h5>
 		<p><%= textilize(note.content) %></p>
 	</div>
 <% end %>
 <br />
-<p><a href="javascript:Effect.Combo('note_form2');">- Add Note -</a></p>
+<p><%= image_tag 'comment_new.gif' %><a href="javascript:Effect.Combo('note_form2');">Add Note</a></p>
 <div id="note_form2" style="display:none;">
 	<%= render :partial => "note_form" %>
 </div>
+<br />
+<br />

@@ -19,7 +19,7 @@ body, ol, ul, td {
 
 h1 {
 	margin:0;
-	padding: 15px 20px 10px;
+	padding: 10px 20px;
 }
 
 h2 {
@@ -47,6 +47,10 @@ a:hover { color: #000; background-color:#abcdef; }
 
 .top_grey_border {
 	border-top:1px solid #bbb;
+}
+
+a:link img {
+  border: none;
 }
 
 /************* Jon's General Stuff **********/
@@ -92,6 +96,8 @@ ul#navigation li {
 ul#navigation-tickets {
 	background-color: #f3f3f3;
 	padding: 5px 7px;
+	border-top:1px dotted #ccc;
+	border-bottom:1px dotted #ccc;	
 }
 
 ul#navigation-tickets li {
@@ -177,11 +183,12 @@ ul#navigation-tickets li {
 
 #notes h5 {
 	margin:0;
-	padding:.4em 0 .2em 0;
+	padding:.6em 0;
 }
 
 #notes p {
-	margin:.2em .4em;
+	margin:.3em .4em;
+	line-height: 1.4em;
 	padding:0;
 }
 
@@ -201,5 +208,5 @@ ul#navigation-tickets li {
 	margin: 100px auto;
 	border: 1px solid #ccc;
 	background-color: #eee;
-	padding: 20px;
+	padding: 0 20px;
 }
