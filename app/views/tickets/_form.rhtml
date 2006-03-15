@@ -11,7 +11,7 @@
 <%= text_area 'ticket', 'description'  %></p>
 
 <p><label for="ticket_tags">Tags:</label>
-<%= text_field_tag('tags', @ticket.tag_list.join(" ")) %></p>
+<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %></p>
 
 
 <!--[eoform:ticket]-->
