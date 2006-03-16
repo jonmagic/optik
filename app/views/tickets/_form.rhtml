@@ -2,10 +2,10 @@
 
 <!--[form:ticket]-->
 <p><label for="ticket_user_id">Assigned To:</label>
-<%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' -%>
+<%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' %>
 
 <p><label for="ticket_state_id">Status:</label>
-<%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%>
+<%= collection_select 'ticket', 'state_id', @states, 'id', 'description' %>
 
 <p><label for="ticket_description">Description:</label><br />
 <%= text_area 'ticket', 'description'  %></p>

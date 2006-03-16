@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_filter :login_required
+
   
   def index
     list
@@ -13,7 +14,6 @@ class TicketsController < ApplicationController
     @tickets_scheduled = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "4" )
     @tickets_completed = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "5" )       
     @page_title = 'My Tickets'
-    @tagged_items = Ticket.tags_count(:limit => 100)
   end
   
   def overview
@@ -23,13 +23,11 @@ class TicketsController < ApplicationController
     @tickets_scheduled = Ticket.find_all_by_state_id( "4" )
     @tickets_completed = Ticket.find_all_by_state_id( "5" )
     @page_title = 'Overview'
-    @tagged_items = Ticket.tags_count(:limit => 100)
   end
   
   def archived
     @archived_pages, @tickets_archived = paginate :tickets, :conditions => ['state_id = ?', "6"], :order => 'created_at ASC', :per_page => 50
     @page_title = 'Archived Tickets'
-    @tagged_items = Ticket.tags_count(:limit => 100)
   end
   
   def advanced_search
@@ -39,15 +37,19 @@ class TicketsController < ApplicationController
   def search   
     @tickets = Ticket.search(params[:query])
     @page_title = 'Search Results'
-    @tagged_items = Ticket.tags_count(:limit => 100)
   end
+  
+  def goto
+    @ticket = params[:number]
+    redirect_to :action => 'show', :id => @ticket
+  end
+  
 
   def show
     @users = User.find(:all)
-    @states = State.find(:all)    
+    @states = State.find(:all)  
     @ticket = Ticket.find(params[:id])
     @page_title = 'Show Ticket'    
-    @tagged_items = Ticket.tags_count(:limit => 100)
   end
 
   def new
@@ -55,7 +57,6 @@ class TicketsController < ApplicationController
     @states = State.find(:all)
     @ticket = Ticket.new
     @page_title = 'New Ticket'    
-    @tagged_items = Ticket.tags_count(:limit => 100)
   end
 
   def create
@@ -90,5 +91,22 @@ class TicketsController < ApplicationController
     flash[:notice] = "Added Your Note."
     redirect_to :action => "show", :id => params[:id]
   end
-
+  
+  def delete_note
+    @ticket = Ticket.find(params[:id])
+    Note.find(params[:note]).destroy
+    redirect_to :action => "show", :id => @ticket
+  end
+  
+  def update_note
+    @ticket = Ticket.find(params[:id])
+    @note = Note.find(params[:n])
+    if @note.update_attributes(params[:note])
+      flash[:notice] = 'Memorial was successfully updated.'
+      redirect_to :action => 'show', :id => @ticket
+    else
+      redirect_to :action => 'show', :id => @ticket
+    end
+  end
+  
 end

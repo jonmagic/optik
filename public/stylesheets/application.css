@@ -49,8 +49,12 @@ a:hover { color: #000; background-color:#abcdef; }
 	border-top:1px solid #bbb;
 }
 
-.addsomepadding {
+.addhorpadding {
 	padding: 0 10px;
+}
+
+.addvertpadding {
+	padding: 5px 0;
 }
 
 a:link img {
@@ -169,6 +173,7 @@ ul#navigation-tickets li {
 #ticket {
 	margin: 20px 0 0 0;
 	border: 1px solid #ccc;
+	line-height: 1.2em;
 }
 
 .insideh4link {
@@ -203,10 +208,11 @@ ul#navigation-tickets li {
 	margin: 0;
 	padding: 10px 5px;
 	border-bottom: 1px solid #ccc;
+	line-height: 1.2em;
 }
 
 .note:hover {
-	background-color: #eee;
+	background-color: #f6f6f6;
 }
 
 /************* User Controller *************/
