@@ -12,7 +12,12 @@ class TicketsController < ApplicationController
     @tickets_inprogress = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "2" )
     @tickets_waiting = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "3" )
     @tickets_scheduled = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "4" )
-    @tickets_completed = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "5" )       
+    @tickets_completed = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "5" )
+    @count_pending = '(' + @tickets_pending.size.to_s + ')'
+    @count_inprogress = '(' + @tickets_inprogress.size.to_s + ')'
+    @count_waiting = '(' + @tickets_waiting.size.to_s + ')'
+    @count_scheduled = '(' + @tickets_scheduled.size.to_s + ')'
+    @count_completed = '(' + @tickets_completed.size.to_s + ')'
     @page_title = 'My Tickets'
   end
   
@@ -22,6 +27,11 @@ class TicketsController < ApplicationController
     @tickets_waiting = Ticket.find_all_by_state_id( "3" )
     @tickets_scheduled = Ticket.find_all_by_state_id( "4" )
     @tickets_completed = Ticket.find_all_by_state_id( "5" )
+    @count_pending = '(' + @tickets_pending.size.to_s + ')'
+    @count_inprogress = '(' + @tickets_inprogress.size.to_s + ')'
+    @count_waiting = '(' + @tickets_waiting.size.to_s + ')'
+    @count_scheduled = '(' + @tickets_scheduled.size.to_s + ')'
+    @count_completed = '(' + @tickets_completed.size.to_s + ')'    
     @page_title = 'Overview'
   end
   
@@ -56,7 +66,8 @@ class TicketsController < ApplicationController
     @users = User.find(:all)
     @states = State.find(:all)
     @ticket = Ticket.new
-    @page_title = 'New Ticket'    
+    @page_title = 'New Ticket'
+    @selected_user = session[:user]
   end
 
   def create
@@ -73,9 +84,17 @@ class TicketsController < ApplicationController
   def update
     @ticket = Ticket.find(params[:id])
     if @ticket.update_attributes(params[:ticket])
-      @ticket.tag(params[:tags], :clear => true)      
-      flash[:notice] = 'Ticket was successfully updated.'
-      redirect_to :action => 'show', :id => @ticket
+      @ticket.tag(params[:tags], :clear => true)
+      if @ticket.state_id == 5
+        flash[:notice] = 'Ticket has been completed.'
+        redirect_to :action => 'index'
+      elsif @ticket.state_id == 6
+        flash[:notice] = 'Ticket has been archived.'
+        redirect_to :action => 'overview'
+      else
+        flash[:notice] = 'Ticket was successfully updated.'
+        redirect_to :action => 'show', :id => @ticket
+      end
     else
       render :action => 'edit'
     end
@@ -86,10 +105,22 @@ class TicketsController < ApplicationController
     redirect_to :action => 'list'
   end
 
-  def add_note
-    Ticket.find(params[:id]).notes.create(params[:note])
-    flash[:notice] = "Added Your Note."
-    redirect_to :action => "show", :id => params[:id]
+  def ajax_add_note
+    @ticket = Ticket.find(params[:id])    
+    @newnote = Note.new(params[:note])
+    @newnote.ticket = @ticket
+    if request.post? and @newnote.save
+      flash[:notice] = "Added Your Note."      
+      render :partial => "note", :object => @newnote
+    else
+      render :text => @newnote.errors.full_messages.join(", "), :status => 500
+    end
+  end
+  
+  def ajax_nuke_note
+    note = Note.find(params[:id])
+    note.destroy 
+    render :nothing => true
   end
   
   def delete_note

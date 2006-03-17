@@ -1,36 +1,18 @@
+<%= form_remote_tag :url => {:action => "ajax_add_note", :id => @ticket}, 
+                    :position=> :top, 
+                    :update => 'live_notes' %>
 <table class="addvertpadding">
 	<tr>
-		<td><%= image_tag 'comment_new.gif' %><a href="javascript:Effect.Combo('note_form1');">Add Note</a></td>
-		<td><div id="note_form1" style="display:none;">
-			<%= form_tag :action => "add_note", :id => @ticket %>
-				<%= text_area 'note', 'content', 'cols' => 60, 'rows' => '10' %>
+		<td><%= image_tag 'comment_new.gif' %><a href="javascript:Effect.Combo('note_form');">Add Note</a></td>
+		<td><div id="note_form" style="display:none;">
+				<%= text_area 'note', 'content', 'cols' => 60, 'rows' => '5' %>
 				<%= hidden_field "note", "user_id", 'value' => session[:user].id %>
 				<%= submit_tag "Add Note" %>
-			</form></div>
+</div>
 		</td>
 	</tr>
 </table>
 <div class="top_grey_border"></div>
-<% for note in @ticket.notes %>
-	<div class="note">
-		<div class="floatright">
-			<a href="javascript:Effect.Combo('show_note_<%= note.id %>');javascript:Effect.Combo('edit_note_<%= note.id %>');"><%= image_tag 'comment_edit.png', :alt => 'Edit' %></a>
-			<%= link_to image_tag('delete.png', :alt => 'Delete'), :action => 'delete_note', :id => @ticket, :note => note %>
-			
-		</div>
-		<div id="show_note_<%= note.id %>">
-			<h5>Note by <%= note.user.firstname %> on <%= note.created_at.strftime "%h %d" %> at <%= note.created_at.strftime "%r" %></h5>
-			<p><%= textilize(note.content) %></p>
-		</div>
-		<div id="edit_note_<%= note.id %>" style="display:none;">
-			<%= form_tag :action => "update_note", :id => @ticket, :n => note %>
-				<table>
-					<tr>
-						<td><%= text_area 'note', 'content', 'cols' => 40, 'rows' => 10, 'value' => note.content %><%= hidden_field "note", "user_id", 'value' => session[:user].id %></td>
-						<td><%= submit_tag "Update Note" %></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-	</div>
-<% end %>
+<%= end_form_tag %>
+
+<%= content_tag(:div, render(:partial => "note", :collection => @ticket.notes.reverse), :id => 'live_notes', :class => 'live_notes') %>

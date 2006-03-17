@@ -1,5 +1,4 @@
 class Ticket < ActiveRecord::Base
-  validates_presence_of [ :description, :user_id, :state_id ]
   acts_as_taggable
   belongs_to :user
   belongs_to :state

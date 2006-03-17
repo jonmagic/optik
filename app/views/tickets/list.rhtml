@@ -1,9 +1,9 @@
 <ul id="navigation-tickets" class="inline">
-	<li><a href="javascript:Effect.Combo('list_pending');">Pending</a></li>
-	<li><a href="javascript:Effect.Combo('list_inprogress');">In-Progress</a></li>
-	<li><a href="javascript:Effect.Combo('list_waiting');">Waiting</a></li>
-	<li><a href="javascript:Effect.Combo('list_scheduled');">Scheduled</a></li>
-	<li><a href="javascript:Effect.Combo('list_completed');">Completed</a></li>	
+	<li><%= @count_pending %><a href="javascript:Effect.Combo('list_pending');">Pending</a></li>
+	<li><%= @count_inprogress %><a href="javascript:Effect.Combo('list_inprogress');">In-Progress</a></li>
+	<li><%= @count_waiting %><a href="javascript:Effect.Combo('list_waiting');">Waiting</a></li>
+	<li><%= @count_scheduled %><a href="javascript:Effect.Combo('list_scheduled');">Scheduled</a></li>
+	<li><%= @count_completed %><a href="javascript:Effect.Combo('list_completed');">Completed</a></li>	
 </ul>
 <%= render :partial => "sidebar" %>
 <div id="content">

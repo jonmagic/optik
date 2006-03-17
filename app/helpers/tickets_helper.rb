@@ -18,4 +18,16 @@ module TicketsHelper
     #{'stuff'}
   end
 
+  def admin_tools_for(model)
+    type = model.class.to_s.downcase
+    tag = [] 
+  end
+
+  def onhover_show_admin_tools(id = nil)
+    tag = []
+    tag << %{ onmouseover="Element.show('note_admin_#{id}');" }
+    tag << %{ onmouseout="Element.hide('note_admin_#{id}');" }
+    tag
+  end
+
 end

@@ -2,17 +2,16 @@
 
 <!--[form:ticket]-->
 <p><label for="ticket_user_id">Assigned To:</label>
-<%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' %>
+<%= user_collection_select 'ticket', 'user_id', @users, 'id', 'firstname', :first_row => session[:user].firstname %>
 
 <p><label for="ticket_state_id">Status:</label>
 <%= collection_select 'ticket', 'state_id', @states, 'id', 'description' %>
 
 <p><label for="ticket_description">Description:</label><br />
-<%= text_area 'ticket', 'description'  %></p>
+<%= text_area 'ticket', 'description', 'cols' => 60, 'rows' => 20 %></p>
 
 <p><label for="ticket_tags">Tags:</label>
-<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %></p>
-
+<%= text_field_tag 'tags', @ticket.tag_names.join(" "), :size => 30 %><br /><br /><span>Always put at least the client name as the first tag.<br />Example: SabreTech programming rails</span></p>
 
 <!--[eoform:ticket]-->
 
