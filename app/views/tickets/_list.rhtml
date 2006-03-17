@@ -1,6 +1,6 @@
 <tr class="tickettablerows">
 	<td><%= @ticket.tag_names.first %></td>
-	<td width="50%"><%= link_to truncate(@ticket.description, 60), :action => 'show', :id => @ticket %></td>
+	<td width="50%"><%= link_to truncate(@ticket.description, 50), :action => 'show', :id => @ticket %></td>
 	<td><%= @ticket.user.firstname %></td>
 	<td><%= @ticket.state.description %></td>
 	<td><span><%= time_ago_in_words(@ticket.updated_at) %> ago</span></td>
