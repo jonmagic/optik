@@ -29,5 +29,9 @@ module TicketsHelper
     tag << %{ onmouseout="Element.hide('note_admin_#{id}');" }
     tag
   end
+  
+  def ticket_counter(tickets)
+    render :text => "( #{tickets.size.to_s} )"
+  end
 
 end

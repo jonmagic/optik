@@ -30,13 +30,12 @@
 	<ul id="navigation" class="inline">
 		<li class="floatright">Welcome <%= session[:user].firstname %>, <%= link_to 'Logout', :controller => 'user', :action => 'logout' %></li>	
 		<li><%= image_tag 'page_new.gif' %><%= link_to 'New Ticket', :action => 'new' %></li>
-		<li><%= image_tag 'page_user.gif' %><%= link_to 'My Tickets', :action => 'list' %></li>
+		<li><%= image_tag 'page_user.gif' %><%= link_to 'My Tickets', :action => 'mytickets' %></li>
 		<li><%= image_tag 'tables.gif' %><%= link_to 'Overview', :action => 'overview' %></li>
 		<li><%= image_tag 'folder.gif' %><%= link_to 'Archived', :action => 'archived' %></li>	
-	</ul>	
-<h1 id="header" class="floatright">- Opportunity Tickets</h1>
-<h1 id="page_title">( <%= @page_title %> )</h1>
-<%= flash_div :warning, :notice %>
+	</ul>
+	<div class="floatright"><%= render :partial => "search" %></div>
+	<h1 id="header" class="">Opportunity Tickets - <span style="color:#666;">( <%= @page_title %> )</span></h1>
 
 	<%= @content_for_layout %>
 

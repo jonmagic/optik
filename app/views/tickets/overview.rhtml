@@ -5,7 +5,7 @@
 	<li><%= @count_scheduled %><a href="#scheduled">Scheduled</a></li>
 	<li><%= @count_completed %><a href="#completed">Completed</a></li>	
 </ul>
-<%= render :partial => "sidebar" %>
+<%= flash_div :warning, :notice %>
 <div id="content">
 	<div id="list_pending" style=""><a name="pending"></a><%= render :partial => "list_pending" %></div>
 	<div id="list_inprogress" style=""><a name="inprogress"></a><%= render :partial => "list_inprogress" %></div>

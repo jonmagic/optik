@@ -1,10 +1,6 @@
 <ul id="navigation-tickets" class="inline">
 </ul>
-<div id="sidebar" class="floatright">
-	<div class="sidebox">
-		<%= render :partial => "search" %>
-	</div>
-</div>
+<%= flash_div :warning, :notice %>
 <div id="content">
 	<div id="ticket">
 		<h3>Ticket# <%= @ticket.id %></h3>

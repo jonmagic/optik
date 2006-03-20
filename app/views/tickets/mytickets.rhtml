@@ -5,7 +5,7 @@
 	<li><%= @count_scheduled %><a href="javascript:Effect.Combo('list_scheduled');">Scheduled</a></li>
 	<li><%= @count_completed %><a href="javascript:Effect.Combo('list_completed');">Completed</a></li>	
 </ul>
-<%= render :partial => "sidebar" %>
+<%= flash_div :warning, :notice %>
 <div id="content">
 	<div id="list_pending" style="display:none;"><%= render :partial => "list_pending" %></div>
 	<div id="list_inprogress" style=""><%= render :partial => "list_inprogress" %></div>

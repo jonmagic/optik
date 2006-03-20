@@ -1,6 +1,7 @@
-<ul id="navigation-tickets" class="inline">	
+<ul id="navigation-tickets" class="inline">
+	<li>Total Archived: <%= @total_archived %></li>
 </ul>
-<%= render :partial => "sidebar" %>
+<%= flash_div :warning, :notice %>
 <div id="content">
 	<div id="list_pending" style=""><%= render :partial => "list_archived" %></div>
 </div>

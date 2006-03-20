@@ -3,21 +3,23 @@ class TicketsController < ApplicationController
 
   
   def index
-    list
-    render :action => 'list'
+    mytickets
+    render :action => 'mytickets'
   end
-
+  
   def list
+    mytickets
+    render :action => 'mytickets'
+  end
+  
+
+  def mytickets
     @tickets_pending = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "1" )
     @tickets_inprogress = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "2" )
     @tickets_waiting = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "3" )
     @tickets_scheduled = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "4" )
     @tickets_completed = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "5" )
-    @count_pending = '(' + @tickets_pending.size.to_s + ')'
-    @count_inprogress = '(' + @tickets_inprogress.size.to_s + ')'
-    @count_waiting = '(' + @tickets_waiting.size.to_s + ')'
-    @count_scheduled = '(' + @tickets_scheduled.size.to_s + ')'
-    @count_completed = '(' + @tickets_completed.size.to_s + ')'
+    counters
     @page_title = 'My Tickets'
   end
   
@@ -27,16 +29,13 @@ class TicketsController < ApplicationController
     @tickets_waiting = Ticket.find_all_by_state_id( "3" )
     @tickets_scheduled = Ticket.find_all_by_state_id( "4" )
     @tickets_completed = Ticket.find_all_by_state_id( "5" )
-    @count_pending = '(' + @tickets_pending.size.to_s + ')'
-    @count_inprogress = '(' + @tickets_inprogress.size.to_s + ')'
-    @count_waiting = '(' + @tickets_waiting.size.to_s + ')'
-    @count_scheduled = '(' + @tickets_scheduled.size.to_s + ')'
-    @count_completed = '(' + @tickets_completed.size.to_s + ')'    
+    counters
     @page_title = 'Overview'
   end
   
   def archived
     @archived_pages, @tickets_archived = paginate :tickets, :conditions => ['state_id = ?', "6"], :order => 'created_at ASC', :per_page => 50
+    @total_archived = @tickets_archived.size.to_s
     @page_title = 'Archived Tickets'
   end
   
@@ -140,4 +139,12 @@ class TicketsController < ApplicationController
     end
   end
   
+  def counters
+    @count_pending = '(' + @tickets_pending.size.to_s + ')'
+    @count_inprogress = '(' + @tickets_inprogress.size.to_s + ')'
+    @count_waiting = '(' + @tickets_waiting.size.to_s + ')'
+    @count_scheduled = '(' + @tickets_scheduled.size.to_s + ')'
+    @count_completed = '(' + @tickets_completed.size.to_s + ')'    
+  end
+
 end
