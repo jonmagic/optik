@@ -180,7 +180,6 @@ ul#navigation-tickets li {
 #ticket {
 	margin: 20px 0 0 0;
 	border: 1px solid #ccc;
-	line-height: 1.2em;
 }
 
 .insideh4link {
@@ -206,8 +205,7 @@ ul#navigation-tickets li {
 }
 
 #notes p {
-	margin:.3em .4em;
-	line-height: 1.4em;
+	margin:.1em .4em;
 	padding:0;
 }
 

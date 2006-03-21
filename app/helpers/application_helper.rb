@@ -17,6 +17,10 @@ module ApplicationHelper
      html_options[:id] = "#{object.to_s}_#{method.to_s}"
      html_options[:name] = "#{object.to_s}[#{method.to_s}]"
      select_html = content_tag(:select, options_html, html_options)
+  end
+  
+  def textilize(text)
+    RedCloth.new(text).to_html
   end  
   
 end
