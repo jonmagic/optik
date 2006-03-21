@@ -129,6 +129,6 @@ task :after_symlink do
 end
 
 desc "Don't restart the web server"
-  task :restart, :roles => :app do
-    run ""
-  end
+task :restart, :roles => :app do
+  run ""
+end

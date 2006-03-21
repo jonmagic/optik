@@ -29,7 +29,7 @@
 <body>
 	<ul id="navigation" class="inline">
 		<li class="floatright">Welcome <%= session[:user].firstname %>, <%= link_to 'Logout', :controller => 'user', :action => 'logout' %></li>	
-		<li><%= image_tag 'page_new.gif' %><%= link_to 'New Ticket', :action => 'new' %></li>
+		<li><%= image_tag 'page_new.gif' %><%= link_to 'New Ticket', {:action => 'new'}, :accesskey => "n" %></li>
 		<li><%= image_tag 'page_user.gif' %><%= link_to 'My Tickets', :action => 'mytickets' %></li>
 		<li><%= image_tag 'tables.gif' %><%= link_to 'Overview', :action => 'overview' %></li>
 		<li><%= image_tag 'folder.gif' %><%= link_to 'Archived', :action => 'archived' %></li>	
