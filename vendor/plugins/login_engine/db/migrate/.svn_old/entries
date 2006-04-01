@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="30"
+   name=""
+   committed-date="2006-03-07T02:18:50.090133Z"
+   url="https://store.sabretechllc.com/public/jonmagic/blogjax/trunk/vendor/plugins/login_engine/db/migrate"
+   last-author="jonmagic"
+   kind="dir"
+   repos="https://store.sabretechllc.com/public/jonmagic"
+   revision="30"/>
+<entry
+   committed-rev="30"
+   name="001_initial_schema.rb"
+   text-time="2006-03-07T02:18:00.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="e3c7ec1ac56a2d94d80fc6c08bfe2c95"
+   last-author="jonmagic"
+   kind="file"/>
+</wc-entries>

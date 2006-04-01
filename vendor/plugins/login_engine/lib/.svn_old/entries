@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="30"
+   name=""
+   committed-date="2006-03-07T02:18:50.090133Z"
+   url="https://store.sabretechllc.com/public/jonmagic/blogjax/trunk/vendor/plugins/login_engine/lib"
+   last-author="jonmagic"
+   kind="dir"
+   repos="https://store.sabretechllc.com/public/jonmagic"
+   revision="30"/>
+<entry
+   committed-rev="30"
+   name="login_engine.rb"
+   text-time="2006-03-07T02:18:02.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="fb5a24a1ec484f63f47a1d29fdc4f630"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   name="login_engine"
+   kind="dir"/>
+</wc-entries>

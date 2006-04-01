@@ -1,0 +1,8 @@
+  <h2>Opportunity Tickets Login</h2>
+    <form action="/user/login" method="post" id="loginform" name="loginform">
+        <p><%= form_input :text_field, "Login ID", "login", :size => 30 %></p>
+        <p><%= form_input :password_field, "Password", "password", :size => 30 %></p>
+      <div class="button-bar">
+		<p><%= submit_tag 'Login' %></p>
+	  </div>
+    <%= end_form_tag %>

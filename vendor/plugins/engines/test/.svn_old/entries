@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="24"
+   name=""
+   committed-date="2006-03-07T01:47:19.507212Z"
+   url="https://store.sabretechllc.com/public/jonmagic/blogjax/trunk/vendor/plugins/engines/test"
+   last-author="jonmagic"
+   kind="dir"
+   repos="https://store.sabretechllc.com/public/jonmagic"
+   revision="24"/>
+<entry
+   committed-rev="24"
+   name="ruby_extensions_test.rb"
+   text-time="2006-03-07T01:40:54.000000Z"
+   committed-date="2006-03-07T01:47:19.507212Z"
+   checksum="b8b48f2b7ae1a0cc6e2383dabaa69abe"
+   last-author="jonmagic"
+   kind="file"/>
+</wc-entries>

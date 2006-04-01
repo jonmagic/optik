@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="30"
+   name=""
+   committed-date="2006-03-07T02:18:50.090133Z"
+   url="https://store.sabretechllc.com/public/jonmagic/blogjax/trunk/vendor/plugins/login_engine/app/views/user_notify"
+   last-author="jonmagic"
+   kind="dir"
+   repos="https://store.sabretechllc.com/public/jonmagic"
+   revision="30"/>
+<entry
+   committed-rev="30"
+   name="delete.rhtml"
+   text-time="2006-03-07T02:17:57.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="89fcd34bbbdadfe0965a53c7bf2364ff"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="forgot_password.rhtml"
+   text-time="2006-03-07T02:17:58.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="1f68955b2c22840129eb7fc278eaec67"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="signup.rhtml"
+   text-time="2006-03-07T02:17:59.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="894eacad19ca966153bae2a97002de29"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="pending_delete.rhtml"
+   text-time="2006-03-07T02:17:58.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="0c847b48e089da17c0d802759e0b0314"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="change_password.rhtml"
+   text-time="2006-03-07T02:17:57.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="89030f5057623a172b1a5b77293209b3"
+   last-author="jonmagic"
+   kind="file"/>
+</wc-entries>

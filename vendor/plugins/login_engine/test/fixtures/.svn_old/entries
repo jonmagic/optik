@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="30"
+   name=""
+   committed-date="2006-03-07T02:18:50.090133Z"
+   url="https://store.sabretechllc.com/public/jonmagic/blogjax/trunk/vendor/plugins/login_engine/test/fixtures"
+   last-author="jonmagic"
+   kind="dir"
+   repos="https://store.sabretechllc.com/public/jonmagic"
+   revision="30"/>
+<entry
+   committed-rev="30"
+   name="users.yml"
+   text-time="2006-03-07T02:18:05.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="b49bfde35880967f9cad1b87d6b6d2d4"
+   last-author="jonmagic"
+   kind="file"/>
+</wc-entries>

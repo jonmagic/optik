@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="24"
+   name=""
+   committed-date="2006-03-07T01:47:19.507212Z"
+   url="https://store.sabretechllc.com/public/jonmagic/blogjax/trunk/vendor/plugins/engines/tasks"
+   last-author="jonmagic"
+   kind="dir"
+   repos="https://store.sabretechllc.com/public/jonmagic"
+   revision="24"/>
+<entry
+   committed-rev="31"
+   name="engines.rake"
+   text-time="2006-03-07T02:33:11.000000Z"
+   committed-date="2006-03-07T02:42:55.797103Z"
+   checksum="8b55fe3ff3fa9eaa4fe8a89b29b4bc6e"
+   last-author="jonmagic"
+   kind="file"
+   revision="31"/>
+</wc-entries>

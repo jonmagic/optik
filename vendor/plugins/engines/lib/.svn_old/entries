@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="24"
+   name=""
+   committed-date="2006-03-07T01:47:19.507212Z"
+   url="https://store.sabretechllc.com/public/jonmagic/blogjax/trunk/vendor/plugins/engines/lib"
+   last-author="jonmagic"
+   kind="dir"
+   repos="https://store.sabretechllc.com/public/jonmagic"
+   revision="24"/>
+<entry
+   committed-rev="24"
+   name="ruby_extensions.rb"
+   text-time="2006-03-07T01:40:47.000000Z"
+   committed-date="2006-03-07T01:47:19.507212Z"
+   checksum="d6a98aa8e1e7a839ef23a2bde666405f"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="24"
+   name="action_mailer_extensions.rb"
+   text-time="2006-03-07T01:40:43.000000Z"
+   committed-date="2006-03-07T01:47:19.507212Z"
+   checksum="89608e6c9cdfda987dc6e33abf57e982"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="24"
+   name="dependencies_extensions.rb"
+   text-time="2006-03-07T01:40:45.000000Z"
+   committed-date="2006-03-07T01:47:19.507212Z"
+   checksum="b30f76c29a1623227d06c19b62b7e7db"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="24"
+   name="action_view_extensions.rb"
+   text-time="2006-03-07T01:40:44.000000Z"
+   committed-date="2006-03-07T01:47:19.507212Z"
+   checksum="df10334c620d740330ebe54d3f4084bf"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="24"
+   name="engines.rb"
+   text-time="2006-03-07T01:40:46.000000Z"
+   committed-date="2006-03-07T01:47:19.507212Z"
+   checksum="49fa4ba608adc81ccce6003db08a64cd"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="24"
+   name="migration_extensions.rb"
+   text-time="2006-03-07T01:40:46.000000Z"
+   committed-date="2006-03-07T01:47:19.507212Z"
+   checksum="a69865a105c069f252f4a8d175670a20"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="24"
+   name="testing_extensions.rb"
+   text-time="2006-03-07T01:40:51.000000Z"
+   committed-date="2006-03-07T01:47:19.507212Z"
+   checksum="22dc54fcd0fe0bfc8217a57105a77f1b"
+   last-author="jonmagic"
+   kind="file"/>
+</wc-entries>

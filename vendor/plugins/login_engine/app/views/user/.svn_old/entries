@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="30"
+   name=""
+   committed-date="2006-03-07T02:18:50.090133Z"
+   url="https://store.sabretechllc.com/public/jonmagic/blogjax/trunk/vendor/plugins/login_engine/app/views/user"
+   last-author="jonmagic"
+   kind="dir"
+   repos="https://store.sabretechllc.com/public/jonmagic"
+   revision="30"/>
+<entry
+   committed-rev="30"
+   name="_password.rhtml"
+   text-time="2006-03-07T02:17:54.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="8c48e8be520fd843508e3231c7efbcf5"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="forgot_password.rhtml"
+   text-time="2006-03-07T02:17:55.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="18558ec333fe5c31c086098c877ca7b7"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="_edit.rhtml"
+   text-time="2006-03-07T02:17:53.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="c703277151c4db439a6c89d298094bdf"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="edit.rhtml"
+   text-time="2006-03-07T02:17:54.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="7702a3cecea92d18d5346b26f464d75d"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="signup.rhtml"
+   text-time="2006-03-07T02:17:56.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="93a6d86bdd44072b18287329b0aba5cd"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="change_password.rhtml"
+   text-time="2006-03-07T02:17:54.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="d4b376c8b7a2423b7a0009e52dfcdfaa"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="home.rhtml"
+   text-time="2006-03-07T02:17:55.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="3963424571ffbbc6baea63ca9631f0e3"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="login.rhtml"
+   text-time="2006-03-07T02:17:55.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="f9078ddef32646ab06da2face2950782"
+   last-author="jonmagic"
+   kind="file"/>
+<entry
+   committed-rev="30"
+   name="logout.rhtml"
+   text-time="2006-03-07T02:17:56.000000Z"
+   committed-date="2006-03-07T02:18:50.090133Z"
+   checksum="b7bdd6a36139763e7c84982086f0ccd2"
+   last-author="jonmagic"
+   kind="file"/>
+</wc-entries>
