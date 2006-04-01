@@ -3,20 +3,7 @@
 <%= flash_div :warning, :notice %>
 <div id="content">
 	<div id="ticket">
-		<h3>Ticket# <%= @ticket.id %></h3>
-		<%= start_form_tag :action => 'update', :id => @ticket %>
-		<p><b>Assigned To:</b> <%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' -%></p>
-		<p><b>Ticket Status:</b> <%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%></p>
-		<div class="addhorpadding"><a href="javascript:Effect.Combo('current_description');javascript:Effect.Combo('new_description');"><b>Description: </b></a>
-			<span id="current_description"><%= textilize(@ticket.description) %></span>
-			<div id="new_description" style="display:none;"><p><%= text_area 'ticket', 'description', "cols" => 50, "rows" => 10 %></p></div></div>
-
-		<div id="edit_tags" class="floatright" style="display:none;">
-			<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %>
-		</div>
-		<p><b><a href="javascript:Effect.Combo('edit_tags');">Tags: </a></b><%= @ticket.tag_names.join(", ") %></p>
-		  <p><%= submit_tag 'Apply' %></p>
-		<%= end_form_tag %>
+		<%= render :partial => "ticket_details" %>
 	</div>
 	
 	<div id="notes">

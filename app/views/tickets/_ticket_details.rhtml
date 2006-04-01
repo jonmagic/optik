@@ -1,0 +1,30 @@
+<h3>Ticket# <%= @ticket.id %></h3>
+
+<%= form_remote_tag :url => {:action => "ajax_update_ticket_details", :id => @ticket},
+                    :update => 'ticket' %>
+
+<p><b>Assigned To:</b> <%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' %></p>
+
+<%= observe_field("ticket_user_id",
+ :frequency => 0.5,
+ :url => { :action => :ajax_update_ticket_owner, :id => @ticket },
+ :with => "'user_id='+ value") %>
+
+				
+<p><b>Ticket Status:</b> <%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%></p>
+
+<%= observe_field("ticket_state_id",
+ :frequency => 0.5,
+ :url => { :action => :ajax_update_ticket_state, :id => @ticket },
+ :with => "'state_id='+ value") %>
+
+	<div class="addhorpadding"><a href="javascript:Effect.Combo('current_description');javascript:Effect.Combo('new_description');"><b>Description: </b></a>
+		<span id="current_description"><%= textilize(@ticket.description) %></span>
+		<div id="new_description" style="display:none;"><p><%= text_area 'ticket', 'description', "cols" => 50, "rows" => 10 %></p></div></div>
+
+	<div id="edit_tags" class="floatright" style="display:none;">
+		<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %>
+	</div>
+	<p><b><a href="javascript:Effect.Combo('edit_tags');">Tags: </a></b><%= @ticket.tag_names.join(", ") %></p>
+  <p><%= submit_tag 'Apply' %></p>
+<%= end_form_tag %>

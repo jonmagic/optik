@@ -39,6 +39,11 @@ class TicketsController < ApplicationController
     @page_title = 'Archived Tickets'
   end
   
+  def statistics
+
+  end
+  
+  
   def advanced_search
     
   end
@@ -78,6 +83,18 @@ class TicketsController < ApplicationController
     else
       render :action => 'new'
     end
+  end
+  
+  def ajax_update_ticket_owner
+    @ticket = Ticket.find(params[:id])
+    @ticket.user_id = params[:user_id]
+    @ticket.save
+  end
+
+  def ajax_update_ticket_state
+    @ticket = Ticket.find(params[:id])
+    @ticket.state_id = params[:state_id]
+    @ticket.save
   end
 
   def update
