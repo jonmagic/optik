@@ -1,7 +1,6 @@
 <h3>Ticket# <%= @ticket.id %></h3>
 
-<%= form_remote_tag :url => {:action => "ajax_update_ticket_details", :id => @ticket},
-                    :update => 'ticket' %>
+<%= start_form_tag :action => 'update', :id => @ticket %>
 
 <p><b>Assigned To:</b> <%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' %></p>
 
