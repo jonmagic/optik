@@ -1,6 +1,5 @@
 class TicketsController < ApplicationController
-  before_filter :login_required
-
+  before_filter :login_required, :except => [ :rss_show, :rss_mytickets ]
   
   def index
     mytickets
@@ -11,7 +10,6 @@ class TicketsController < ApplicationController
     mytickets
     render :action => 'mytickets'
   end
-  
 
   def mytickets
     @tickets_pending = Ticket.find_all_by_user_id_and_state_id(@session[:user].id, "1" )
@@ -163,5 +161,21 @@ class TicketsController < ApplicationController
     @count_scheduled = '(' + @tickets_scheduled.size.to_s + ')'
     @count_completed = '(' + @tickets_completed.size.to_s + ')'    
   end
-
+  
+  #rss feeds
+  
+  def rss_show
+    @ticket = Ticket.find(params[:id])
+    @notes = Ticket.find(params[:id]).notes
+    render_without_layout
+  end
+  
+  def rss_mytickets
+    @tickets = Ticket.find_all_by_user_id(params[:user])
+    render_without_layout
+  end
+  
+  def rss_overview
+    render_without_layout
+  end
 end

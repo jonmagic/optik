@@ -1,6 +1,7 @@
 <%= form_remote_tag :url => {:action => "ajax_add_note", :id => @ticket}, 
                     :position=> :top, 
                     :update => 'live_notes' %>
+<%= link_to image_tag('rss-button.gif', :border => '0'), {:action => 'rss_show', :id => @ticket.id}, :class => 'floatright' %>
 <table class="addvertpadding">
 	<tr>
 		<td><%= image_tag 'comment_new.gif' %><a href="javascript:Effect.Combo('note_form');">Add Note</a></td>

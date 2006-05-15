@@ -114,6 +114,9 @@ ul#navigation-tickets li {
 	padding: 0 20px 0 20px;
 }
 
+ul#navigation-tickets a {
+}
+
 /*********** Sidebar **************/
 #sidebar {
 	width: 270px;
@@ -138,11 +141,16 @@ ul#navigation-tickets li {
 
 /*********** Content *************/
 #content {
-	padding: 0 28px;
+	padding: 0 15px;
 }
 
 .paginate {
 	border-top: 1px solid #ccc;
+}
+
+.rss_button a, .rss_button {
+	padding:0;
+	margin:0;
 }
 
 /*********** Tables *************/

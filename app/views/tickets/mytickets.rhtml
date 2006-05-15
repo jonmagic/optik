@@ -3,7 +3,8 @@
 	<li><%= @count_inprogress %><a href="javascript:Effect.Combo('list_inprogress');">In-Progress</a></li>
 	<li><%= @count_waiting %><a href="javascript:Effect.Combo('list_waiting');">Waiting</a></li>
 	<li><%= @count_scheduled %><a href="javascript:Effect.Combo('list_scheduled');">Scheduled</a></li>
-	<li><%= @count_completed %><a href="javascript:Effect.Combo('list_completed');">Completed</a></li>	
+	<li><%= @count_completed %><a href="javascript:Effect.Combo('list_completed');">Completed</a></li>
+	<li><%= link_to image_tag('rss-button.gif', :border => '0', :align => 'top'), {:action => 'rss_mytickets', :user => @session[:user].id}, :class => 'rss_button' %></li>
 </ul>
 <%= flash_div :warning, :notice %>
 <div id="content">

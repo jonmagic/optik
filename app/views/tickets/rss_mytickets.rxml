@@ -1,0 +1,19 @@
+xml.instruct! :xml, :version=>"1.0" 
+xml.rss(:version=>"2.0"){
+  xml.channel{
+    xml.title("My Tickets")
+    xml.link("http://www.sabretechllc.com/ot/")
+    xml.language("en-us")
+    xml.ttl("40")
+    xml.description("My Tickets")
+    for @ticket in @tickets
+      xml.item do
+        xml.title("Ticket ##{@ticket.id}")
+        xml.description("<p>#{@ticket.description}</p>")
+        # rfc822
+        xml.pubDate(@ticket.created_at.strftime("%a, %d %b %Y %H:%M:%S %z"))
+        xml.link("http://www.sabretechllc.com/ot/tickets/show/#{@ticket.id}")
+      end
+    end
+  }
+}

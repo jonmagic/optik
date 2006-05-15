@@ -1,0 +1,19 @@
+xml.instruct! :xml, :version=>"1.0" 
+xml.rss(:version=>"2.0"){
+  xml.channel{
+    xml.title("Ticket ##{@ticket.id}")
+    xml.link("http://www.sabretechllc.com/ot/")
+    xml.language("en-us")
+    xml.ttl("40")
+    xml.description(@ticket.description)
+    for note in @notes
+      xml.item do
+        xml.title("Note by #{note.user.firstname} on #{note.created_at.strftime("%h %d")} at #{note.created_at.strftime("%r")}")
+        xml.description(note.content)
+        # rfc822
+        xml.pubDate(note.created_at.strftime("%a, %d %b %Y %H:%M:%S %z"))
+        xml.link("http://www.sabretechllc.com/ot/tickets/show/#{@ticket.id}")
+      end
+    end
+  }
+}
