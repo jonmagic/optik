@@ -11,7 +11,7 @@
 # form the root of the application path.
 
 set :application, "optik"
-set :repository, "https://store.sabretechllc.com/public/jonmagic/optik/trunk"
+set :repository, "http://store.sabretechllc.com/public/jonmagic/optik/trunk"
 
 # =============================================================================
 # ROLES
