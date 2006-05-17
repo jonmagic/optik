@@ -1,4 +1,5 @@
 <tr class="tickettablerows">
+	<td><center><%= @ticket.id %></center></td>
 	<td><%= @ticket.tag_names.first %></td>
 	<td width="70%"><%= link_to truncate(@ticket.description, 100), :action => 'show', :id => @ticket %></td>
 	<td><%= @ticket.user.firstname %></td>

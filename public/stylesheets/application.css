@@ -107,7 +107,8 @@ ul#navigation-tickets {
 	background-color: #f3f3f3;
 	padding: 5px 7px;
 	border-top:1px dotted #ccc;
-	border-bottom:1px dotted #ccc;	
+	border-bottom:1px dotted #ccc;
+	white-space: nowrap;
 }
 
 ul#navigation-tickets li {
@@ -151,6 +152,14 @@ ul#navigation-tickets a {
 .rss_button a, .rss_button {
 	padding:0;
 	margin:0;
+}
+
+#search-all {
+	padding: 1em;
+}
+
+.align-center {
+	text-align: center;
 }
 
 /*********** Tables *************/

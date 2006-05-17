@@ -1,22 +1,11 @@
 
-<div id="go-to">
-	<%= start_form_tag :action => 'goto' %>
-		<table class="addhorpadding">
-			<tr>
-				<td><%= text_field_tag('number') %></td>
-				<td><%= submit_tag "Go-To-Ticket" %></td>
-			</tr>
-		</table>
-	<%= end_form_tag %>	
-</div>
 <div id="search-all">
 	<%= start_form_tag :action => 'search' %>
 		<table class="addhorpadding">
 			<tr>
 				<td><%= text_field_tag('query') %></td>
-				<td><%= submit_tag "Search Descriptions" %></td>
+				<td><%= submit_tag "Search" %></td>
 			</tr>
 		</table>
 	<%= end_form_tag %>
 </div>
-<br />

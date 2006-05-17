@@ -33,7 +33,7 @@ class TicketsController < ApplicationController
   
   def archived
     @archived_pages, @tickets_archived = paginate :tickets, :conditions => ['state_id = ?', "6"], :order => 'created_at ASC', :per_page => 50
-    @total_archived = @tickets_archived.size.to_s
+    @total_archived = Ticket.find(:all, :conditions => ['state_id =?', "6"]).size.to_s 
     @page_title = 'Archived Tickets'
   end
   
@@ -41,14 +41,16 @@ class TicketsController < ApplicationController
 
   end
   
-  
-  def advanced_search
-    
-  end
-  
   def search   
-    @tickets = Ticket.search(params[:query])
-    @page_title = 'Search Results'
+    @query = params[:query] || request.raw_post || request.query_string
+    @result_pages = Paginator.new self, Ticket.quicksearch(@query, :count => true), 50, @params['page']
+    @tickets = Ticket.quicksearch(@query, 
+                                  :limit  =>  @result_pages.items_per_page,
+                                  :offset =>  @result_pages.current.offset)
+    if @tickets.blank?
+      flash[:notice] = 'No results found'
+    else
+    end
   end
   
   def goto
@@ -56,6 +58,7 @@ class TicketsController < ApplicationController
     redirect_to :action => 'show', :id => @ticket
   end
   
+  # Ticket stuff
 
   def show
     @users = User.find(:all)
@@ -118,6 +121,8 @@ class TicketsController < ApplicationController
     Ticket.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
+  
+  # Note stuff
 
   def ajax_add_note
     @ticket = Ticket.find(params[:id])    
@@ -178,4 +183,5 @@ class TicketsController < ApplicationController
   def rss_overview
     render_without_layout
   end
+
 end
