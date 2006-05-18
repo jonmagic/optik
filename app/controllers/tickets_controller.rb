@@ -51,6 +51,7 @@ class TicketsController < ApplicationController
       flash[:notice] = 'No results found'
     else
     end
+    @page_title = 'Search Results'
   end
   
   def goto
