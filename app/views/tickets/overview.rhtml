@@ -7,9 +7,55 @@
 </ul>
 <%= flash_div :warning, :notice %>
 <div id="content">
-	<div id="list_pending" style=""><a name="pending"></a><%= render :partial => "list_pending" %></div>
-	<div id="list_inprogress" style=""><a name="inprogress"></a><%= render :partial => "list_inprogress" %></div>
-	<div id="list_waiting" style=""><a name="waiting"></a><%= render :partial => "list_waiting" %></div>
-	<div id="list_scheduled" style=""><a name="scheduled"></a><%= render :partial => "list_scheduled" %></div>
-	<div id="list_completed" style=""><a name="completed"></a><%= render :partial => "list_completed" %></div>	
+	<div id="list_pending" style="">
+		<a name="pending"></a>
+		<h2>Pending Tickets<%= link_to image_tag('rss-button.gif', :border => '0'), {:action => 'rss_all_pending'} %></h2>
+
+		<table id="table-pending" class="table">
+		<%= render :partial => "tableheader" %>	
+		<% for @ticket in @tickets_pending %>
+			<%= render :partial => "list" %>
+		<% end %>
+		</table>
+	</div>
+	<div id="list_inprogress" style="">
+		<a name="inprogress"></a>
+		<h2>In-Progress Tickets<%= link_to image_tag('rss-button.gif', :border => '0'), {:action => 'rss_all_inprogress'} %></h2>
+		<table id="table-inprogress" class="table">
+		<%= render :partial => "tableheader" %>
+		<% for @ticket in @tickets_inprogress %>
+			<%= render :partial => "list" %>
+		<% end %>
+		</table>
+	</div>
+	<div id="list_waiting" style="">
+		<a name="waiting"></a>
+		<h2>Waiting Tickets<%= link_to image_tag('rss-button.gif', :border => '0'), {:action => 'rss_all_waiting'} %></h2>
+		<table id="table-waiting" class="table">
+		<%= render :partial => "tableheader" %>	
+		<% for @ticket in @tickets_waiting %>
+			<%= render :partial => "list" %>
+		<% end %>
+		</table>
+	</div>
+	<div id="list_scheduled" style="">
+		<a name="scheduled"></a>
+		<h2>Scheduled Tickets<%= link_to image_tag('rss-button.gif', :border => '0'), {:action => 'rss_all_scheduled'} %></h2>
+		<table id="table-scheduled" class="table">
+		<%= render :partial => "tableheader" %>	
+		<% for @ticket in @tickets_scheduled %>
+			<%= render :partial => "list" %>
+		<% end %>
+		</table>
+	</div>
+	<div id="list_completed" style="">
+		<a name="completed"></a>
+		<h2>Completed Tickets<%= link_to image_tag('rss-button.gif', :border => '0'), {:action => 'rss_all_completed'} %></h2>
+		<table id="table-completed" class="table">
+		<%= render :partial => "tableheader" %>	
+		<% for @ticket in @tickets_completed %>
+			<%= render :partial => "list" %>
+		<% end %>
+		</table>
+	</div>	
 </div>

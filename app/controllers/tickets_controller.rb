@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
-  before_filter :login_required, :except => [ :rss_show, :rss_mytickets ]
+  before_filter :login_required, 
+                :except => [ :rss_show, :rss_mytickets, :rss_all_pending, :rss_all_inprogress, :rss_all_waiting, :rss_all_scheduled, :rss_all_completed, :rss_all_archived ]
   
   def index
     mytickets
@@ -184,5 +185,35 @@ class TicketsController < ApplicationController
   def rss_overview
     render_without_layout
   end
-
+  
+  def rss_all_pending
+    @tickets = Ticket.find_all_by_state_id( "1" )
+    render_without_layout
+  end
+  
+  def rss_all_inprogress
+    @tickets = Ticket.find_all_by_state_id( "2" )
+    render_without_layout
+  end
+  
+  def rss_all_waiting
+    @tickets = Ticket.find_all_by_state_id( "3" )
+    render_without_layout
+  end
+  
+  def rss_all_scheduled
+    @tickets = Ticket.find_all_by_state_id( "4" )
+    render_without_layout
+  end
+  
+  def rss_all_completed
+    @tickets = Ticket.find_all_by_state_id( "5" )
+    render_without_layout
+  end
+  
+  def rss_all_archived
+    @tickets = Ticket.find_all_by_state_id( "6" )
+    render_without_layout
+  end
+  
 end

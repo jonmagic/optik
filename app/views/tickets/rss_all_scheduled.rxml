@@ -1,11 +1,11 @@
 xml.instruct! :xml, :version=>"1.0" 
 xml.rss(:version=>"2.0"){
   xml.channel{
-    xml.title("My Tickets")
+    xml.title("All Scheduled Tickets")
     xml.link("http://www.sabretechllc.com/ot/")
     xml.language("en-us")
     xml.ttl("40")
-    xml.description("My Tickets")
+    xml.description("Scheduled Tickets")
     for ticket in @tickets
       note_array = ''
       for note in ticket.notes;note_array << "<p><b>Note by " + note.user.firstname + " on " + note.created_at.strftime("%h %d") + " at " + note.created_at.strftime("%r") + "</b><br />" + note.content + "</p>";end

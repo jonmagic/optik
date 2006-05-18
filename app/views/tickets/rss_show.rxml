@@ -6,6 +6,12 @@ xml.rss(:version=>"2.0"){
     xml.language("en-us")
     xml.ttl("40")
     xml.description(@ticket.description)
+    xml.item do
+      xml.title("Ticket Details")
+      xml.description("<p>Description: #{@ticket.description}</p><p>Tags: #{@ticket.tag_names.join(", ")}</p>")
+      xml.pubDate(@ticket.created_at.strftime("%a, %d %b %Y %H:%M:%S %z"))
+      xml.link("http://www.sabretechllc.com/ot/tickets/show/#{@ticket.id}")
+    end
     for note in @notes
       xml.item do
         xml.title("Note by #{note.user.firstname} on #{note.created_at.strftime("%h %d")} at #{note.created_at.strftime("%r")}")

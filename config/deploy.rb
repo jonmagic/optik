@@ -124,5 +124,11 @@ end
 desc "This task sets up all my particular symlinks"
 task :after_symlink do
   run "cp ~/capistrano/optik/config/database.yml #{release_path}/config/"
+  run "rm -rf #{release_path}/vendor/plugins/login_engine"
+  run "ln -s ~/apps/shared/vendor/plugins/login_engine #{release_path}/vendor/plugins/login_engine"
 end
 
+desc "Don't restart the web server"
+task :restart, :roles => :app do
+  run ""
+end
