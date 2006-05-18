@@ -126,7 +126,3 @@ task :after_symlink do
   run "cp ~/capistrano/optik/config/database.yml #{release_path}/config/"
 end
 
-desc "Don't restart the web server"
-task :restart, :roles => :app do
-  run ""
-end

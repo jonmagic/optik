@@ -10,11 +10,12 @@ class Ticket < ActiveRecord::Base
       item_cond = Caboose::EZ::Condition.new :tickets do
         any_of(:description, :id).nocase =~ "%#{item}%"
         condition :notes, {:outer => :or} do any_of(:content).nocase =~ "%#{item}%" end
+        condition :tags, {:outer => :or} do any_of(:name).nocase =~ "%#{item}%" end
       end
       conds << item_cond
     end
     options[:conditions] = conds.to_sql
-    options[:include] = [:notes]
+    options[:include] = [:notes, :tags]
     if options.delete(:count)
       return self.count(options)
     else
