@@ -33,7 +33,7 @@ class TicketsController < ApplicationController
   end
   
   def archived
-    @archived_pages, @tickets_archived = paginate :tickets, :conditions => ['state_id = ?', "6"], :order => 'created_at ASC', :per_page => 50
+    @archived_pages, @tickets_archived = paginate :tickets, :conditions => ['state_id = ?', "6"], :order => 'created_at DESC', :per_page => 50
     @total_archived = Ticket.find(:all, :conditions => ['state_id =?', "6"]).size.to_s 
     @page_title = 'Archived Tickets'
   end

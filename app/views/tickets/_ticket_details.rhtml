@@ -15,8 +15,7 @@
 <%= observe_field("ticket_state_id",
  :frequency => 0.5,
  :url => { :action => :ajax_update_ticket_state, :id => @ticket },
- :with => "'state_id='+ value",
- :confirm => "Have you entered your parts!") %>
+ :with => "'state_id='+ value") %>
 
 	<div class="addhorpadding"><a href="javascript:Effect.Combo('current_description');javascript:Effect.Combo('new_description');"><b>Description: </b></a>
 		<span id="current_description"><%= textilize(@ticket.description) %></span>
