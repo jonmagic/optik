@@ -154,7 +154,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     @note = Note.find(params[:n])
     if @note.update_attributes(params[:note])
-      flash[:notice] = 'Memorial was successfully updated.'
+      flash[:notice] = 'Ticket was successfully updated.'
       redirect_to :action => 'show', :id => @ticket
     else
       redirect_to :action => 'show', :id => @ticket
