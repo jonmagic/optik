@@ -22,7 +22,7 @@ set :repository, "http://store.sabretechllc.com/public/jonmagic/#{application}/t
 # be used to single out a specific subset of boxes in a particular role, like
 # :primary => true.
 
-set :domain, "sixsigma.sabretechllc.com"
+set :domain, "optik.sabretechllc.com"
 role :web, domain
 role :app, domain
 role :db,  domain, :primary => true
@@ -41,7 +41,7 @@ set :deploy_to, "/home/sabretechllc/apps/#{application}"
 # XXX we may not need this - it doesn't work on windows
 set :user, "sabretechllc"
 set :repository, "http://store.sabretechllc.com/public/jonmagic/optik/trunk"
-set :rails_env, "production"
+set :rails_env, "environment"
 
 # Automatically symlink these directories from current/public to shared/public.
 # set :app_symlinks, %w{photo, document, asset}
@@ -71,7 +71,7 @@ set :mongrel_conf, "#{deploy_to}/current/config/mongrel_cluster.yml"
 set :mongrel_servers, 3
 set :mongrel_port, 5000
 set :mongrel_address, "127.0.0.1"
-set :mongrel_environment, "production"
+set :mongrel_environment, "environment"
 # set :mongrel_user, nil
 # set :mongrel_group, nil
 # set :mongrel_prefix, nil
