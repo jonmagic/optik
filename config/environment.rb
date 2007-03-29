@@ -47,4 +47,4 @@ end
 
 Engines.start :login
 
-# require_gem 'RedCloth'
+require_gem 'RedCloth'
