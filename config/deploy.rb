@@ -41,7 +41,7 @@ set :deploy_to, "/home/sabretechllc/apps/#{application}"
 # XXX we may not need this - it doesn't work on windows
 set :user, "sabretechllc"
 set :repository, "http://store.sabretechllc.com/public/jonmagic/optik/trunk"
-set :rails_env, "environment"
+set :rails_env, "production"
 
 # Automatically symlink these directories from current/public to shared/public.
 # set :app_symlinks, %w{photo, document, asset}
@@ -71,7 +71,7 @@ set :mongrel_conf, "#{deploy_to}/current/config/mongrel_cluster.yml"
 set :mongrel_servers, 3
 set :mongrel_port, 5000
 set :mongrel_address, "127.0.0.1"
-set :mongrel_environment, "environment"
+set :mongrel_environment, "production"
 # set :mongrel_user, nil
 # set :mongrel_group, nil
 # set :mongrel_prefix, nil
@@ -243,7 +243,6 @@ task :deploy_first_time do
   setup_mysql
   migrate
   configure_mongrel_cluster
-  configure_nginx
   restart_mongrel_cluster
   start_nginx
 end
