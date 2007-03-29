@@ -12,6 +12,9 @@ def cap(*parameters)
 
   require 'capistrano/cli'
 
+  STDERR.puts "Capistrano/Rake integration is deprecated."
+  STDERR.puts "Please invoke the 'cap' command directly: `cap #{parameters.join(" ")}'"
+
   Capistrano::CLI.new(parameters.map { |param| param.to_s }).execute!
 end
 
@@ -52,8 +55,14 @@ namespace :remote do
   desc "Rollback the latest checked-out version to the previous one by fixing the symlinks and deleting the current release from all servers."
   task(:rollback_code) { cap :rollback_code }
 
+  desc "Sets group permissions on checkout."
+  task(:set_permissions) { cap :set_permissions }
+
   desc "Set up the expected application directory structure on all boxes"
   task(:setup) { cap :setup }
+
+  desc "Begin an interactive Capistrano session."
+  task(:shell) { cap :shell }
 
   desc "Enumerate and describe every available task."
   task(:show_tasks) { cap :show_tasks, '-q' }
@@ -63,6 +72,9 @@ namespace :remote do
 
   desc "Update the 'current' symlink to point to the latest version of the application's code."
   task(:symlink) { cap :symlink }
+
+  desc "Updates the code and fixes the symlink under a transaction"
+  task(:update) { cap :update }
 
   desc "Update all servers with the latest release of the source code."
   task(:update_code) { cap :update_code }
