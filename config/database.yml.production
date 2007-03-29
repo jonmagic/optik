@@ -1,23 +1,20 @@
 development:
   adapter: mysql
   database: optik_development
-  username: root
-  password:
+  username: sabretechllc
+  password: 1214bj06
   host: localhost
-  port: 3306
 
 test:
   adapter: mysql
-  database: blogjax_test
-  username: root
-  password:
+  database: optik_test
+  username: sabretechllc
+  password: 1214bj06
   host: localhost
-  port: 3306
 
 production:
   adapter: mysql
   database: optik_production
-  username: root
-  password:
+  username: sabretechllc
+  password: 1214bj06
   host: localhost
-  port: 3306
