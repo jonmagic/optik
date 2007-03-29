@@ -248,6 +248,13 @@ task :deploy_first_time do
   start_nginx
 end
 
+task :optik_deploy do
+  deploy
+  create_database_yml
+  restart_mongrel_cluster
+  restart_nginx
+end
+
 # overwrite the deprec read_config task so that it grabs the right config
 def read_config
   db_config = YAML.load_file('config/database.yml.production')

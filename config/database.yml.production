@@ -1,6 +1,6 @@
 development:
   adapter: mysql
-  database: optik_development
+  database: optik_production
   username: sabretechllc
   password: 1214bj06
   host: localhost
