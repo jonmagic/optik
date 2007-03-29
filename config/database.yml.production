@@ -1,0 +1,23 @@
+development:
+  adapter: mysql
+  database: optik_development
+  username: root
+  password:
+  host: localhost
+  port: 3306
+
+test:
+  adapter: mysql
+  database: blogjax_test
+  username: root
+  password:
+  host: localhost
+  port: 3306
+
+production:
+  adapter: mysql
+  database: optik_production
+  username: root
+  password:
+  host: localhost
+  port: 3306
