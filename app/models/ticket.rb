@@ -5,21 +5,27 @@ class Ticket < ActiveRecord::Base
   has_many :notes
 
   def self.quicksearch(query, options = {})
-    conds = Caboose::EZ::Condition.new
-    for item in query.split
-      item_cond = Caboose::EZ::Condition.new :tickets do
-        any_of(:description, :id).nocase =~ "%#{item}%"
-        condition :notes, {:outer => :or} do any_of(:content).nocase =~ "%#{item}%" end
-        condition :tags, {:outer => :or} do any_of(:name).nocase =~ "%#{item}%" end
+    if !query.to_s.strip.empty?
+      tokens = query.split
+      resultshash = {}
+      tokens.each do |token|
+        find_by_sql(["SELECT * FROM tickets WHERE LOWER(description) LIKE ?", '%'+token.downcase+'%']).each do |result|
+          resultshash[result.id] ||= [0, nil]
+          resultshash[result.id][0] += 1
+          resultshash[result.id][1] = result
+        end
       end
-      conds << item_cond
-    end
-    options[:conditions] = conds.to_sql
-    options[:include] = [:notes, :tags]
-    if options.delete(:count)
-      return self.count(options)
+      Ticket.find_tagged_with(options.merge(:any => tokens)).each do |result|
+        resultshash[result.id] ||= [0, nil]
+        resultshash[result.id][0] += 1
+        resultshash[result.id][1] = result
+      end
+      results = resultshash.keys.collect {|k| resultshash[k][1]}.sort {|b,a| resultshash[a.id][0] <=> resultshash[b.id][0] || a.updated_at <=> b.updated_at}
+        offset = options.delete(:offset) || 0
+        limit = options.delete(:limit) || 100000
+      return options.delete(:count) ? resultshash.keys.length : results[offset..(offset+limit)]
     else
-      return self.find(:all, options)
+      []
     end
   end
 
