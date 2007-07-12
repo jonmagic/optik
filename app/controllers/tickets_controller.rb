@@ -92,12 +92,14 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     @ticket.user_id = params[:user_id]
     @ticket.save
+    render :nothing => true    
   end
 
   def ajax_update_ticket_state
     @ticket = Ticket.find(params[:id])
     @ticket.state_id = params[:state_id]
     @ticket.save
+    render :nothing => true    
   end
 
   def update
