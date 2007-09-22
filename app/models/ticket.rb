@@ -9,7 +9,7 @@ class Ticket < ActiveRecord::Base
       tokens = query.split
       resultshash = {}
       tokens.each do |token|
-        find_by_sql(["SELECT * FROM tickets WHERE LOWER(description) LIKE ?", '%'+token.downcase+'%']).each do |result|
+        find_by_sql(["SELECT tickets.* FROM tickets LEFT JOIN notes ON notes.ticket_id = tickets.id WHERE LOWER(tickets.description) LIKE ? OR notes.content LIKE ?", '%'+token.downcase+'%', '%'+token.downcase+'%']).each do |result|
           resultshash[result.id] ||= [0, nil]
           resultshash[result.id][0] += 1
           resultshash[result.id][1] = result
