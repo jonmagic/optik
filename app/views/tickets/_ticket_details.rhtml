@@ -1,30 +1,40 @@
-<h3>Ticket# <%= @ticket.id %></h3>
+<h3>Ticket# <%= @ticket.id %> - Created on <%= @ticket.created_at.strftime "%h %d, %Y" %></h3>
 
 <%= start_form_tag :action => 'update', :id => @ticket %>
-
+<div class="floatright">Parts<br /><%= text_area 'ticket', 'parts', "cols" => 30, "rows" => 10 %></div>
+<div class="floatright">Referrals<br /><%= text_area 'ticket', 'referrals', "cols" => 30, "rows" => 10 %></div>
 <p><b>Assigned To:</b> <%= collection_select 'ticket', 'user_id', @users, 'id', 'firstname' %></p>
+				
+<p><b>Ticket Status:</b> <%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%></p>
+
+
+	<div class="addhorpadding"><a href="javascript:Effect.Combo('current_description');javascript:Effect.Combo('new_description');"><b>Description: </b></a>
+		<span id="current_description"><%= textilize(@ticket.description) %></span>
+		<div id="new_description" style="display:none;"><p><%= text_area 'ticket', 'description', "cols" => 50, "rows" => 10 %></p></div></div>
+
+	<p><b><a href="javascript:Effect.Combo('edit_tags');">Tags: </a></b><%= @ticket.tag_names.join(", ") %>	<div id="edit_tags" class="" style="display:none;">
+			<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %>
+		</div></p>
+  <p><%= submit_tag 'Apply' %></p>
+	<%= Time.today %>
+<%= end_form_tag %>
 
 <%= observe_field("ticket_user_id",
  :frequency => 0.5,
  :url => { :action => :ajax_update_ticket_owner, :id => @ticket },
  :with => "'user_id='+ value") %>
 
-				
-<p><b>Ticket Status:</b> <%= collection_select 'ticket', 'state_id', @states, 'id', 'description' -%></p>
-
 <%= observe_field("ticket_state_id",
  :frequency => 0.5,
  :url => { :action => :ajax_update_ticket_state, :id => @ticket },
  :with => "'state_id='+ value") %>
 
-	<div class="addhorpadding"><a href="javascript:Effect.Combo('current_description');javascript:Effect.Combo('new_description');"><b>Description: </b></a>
-		<span id="current_description"><%= textilize(@ticket.description) %></span>
-		<div id="new_description" style="display:none;"><p><%= text_area 'ticket', 'description', "cols" => 50, "rows" => 10 %></p></div></div>
+<%= observe_field("ticket_parts",
+ :frequency => 0.5,
+ :url => { :action => :ajax_update_ticket_parts, :id => @ticket },
+ :with => "'parts='+ value") %>
 
-	<div id="edit_tags" class="floatright" style="display:none;">
-		<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %>
-	</div>
-	<p><b><a href="javascript:Effect.Combo('edit_tags');">Tags: </a></b><%= @ticket.tag_names.join(", ") %></p>
-  <p><%= submit_tag 'Apply' %></p>
-<%= end_form_tag %>
-
+<%= observe_field("ticket_referrals",
+ :frequency => 0.5,
+ :url => { :action => :ajax_update_ticket_referrals, :id => @ticket },
+ :with => "'referrals='+ value") %>

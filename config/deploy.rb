@@ -251,7 +251,6 @@ task :optik_deploy do
   deploy
   create_database_yml
   restart_mongrel_cluster
-  restart_nginx
 end
 
 # overwrite the deprec read_config task so that it grabs the right config

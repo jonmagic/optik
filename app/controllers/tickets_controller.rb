@@ -64,8 +64,8 @@ class TicketsController < ApplicationController
 
   def show
     @users = User.find(:all)
-    @states = State.find(:all)  
     @ticket = Ticket.find(params[:id])
+    list_states
     @page_title = 'Show Ticket'    
   end
 
@@ -98,6 +98,20 @@ class TicketsController < ApplicationController
   def ajax_update_ticket_state
     @ticket = Ticket.find(params[:id])
     @ticket.state_id = params[:state_id]
+    @ticket.save
+    render :nothing => true    
+  end
+  
+  def ajax_update_ticket_parts
+    @ticket = Ticket.find(params[:id])
+    @ticket.parts = params[:parts]
+    @ticket.save
+    render :nothing => true    
+  end
+  
+  def ajax_update_ticket_referrals
+    @ticket = Ticket.find(params[:id])
+    @ticket.referrals = params[:referrals]
     @ticket.save
     render :nothing => true    
   end
@@ -218,4 +232,19 @@ class TicketsController < ApplicationController
     render_without_layout
   end
   
+  private
+  
+    def list_states
+      @all_states = State.find(:all)
+      if @ticket.created_at < Ticket.find(2516).created_at
+        @states = @all_states
+      elsif @ticket.parts.nil?
+        @states = @all_states.first(4)
+      elsif @ticket.referrals.nil?
+        @states = @all_states.first(4)
+      else
+        @states = @all_states
+      end
+    end
+    
 end
