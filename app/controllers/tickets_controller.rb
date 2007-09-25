@@ -71,8 +71,8 @@ class TicketsController < ApplicationController
 
   def new
     @users = User.find(:all)
-    @states = State.find(:all)
     @ticket = Ticket.new
+    list_states
     @page_title = 'New Ticket'
     @selected_user = session[:user]
   end
