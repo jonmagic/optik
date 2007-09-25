@@ -236,12 +236,10 @@ class TicketsController < ApplicationController
   
     def list_states
       @all_states = State.find(:all)
-      if @ticket.created_at < Ticket.find(2516).created_at
+      if @ticket.id < 2500
         @states = @all_states
-      elsif @ticket.parts.nil?
-        @states = @all_states.first(4)
-      elsif @ticket.referrals.nil?
-        @states = @all_states.first(4)
+      elsif @ticket.parts.blank? or @ticket.referrals.blank?
+        @states = @all_states[0,4]
       else
         @states = @all_states
       end

@@ -16,7 +16,6 @@
 			<%= text_field_tag('tags', @ticket.tag_names.join(" ")) %>
 		</div></p>
   <p><%= submit_tag 'Apply' %></p>
-	<%= Time.today %>
 <%= end_form_tag %>
 
 <%= observe_field("ticket_user_id",
