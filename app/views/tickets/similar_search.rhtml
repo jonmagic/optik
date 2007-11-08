@@ -1,0 +1,7 @@
+<h4>Is your ticket a duplicate of any of the following?</h4>
+<table id="table-search" class="table">
+	<%= render :partial => "tableheader" %>
+	<% for @ticket in @tickets %>
+		<%= render :partial => "list" %>
+	<% end %>
+</table>

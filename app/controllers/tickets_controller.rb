@@ -50,6 +50,11 @@ class TicketsController < ApplicationController
     end
     @page_title = 'Search Results'
   end
+
+  def similar_search
+    @query = params[:query] || request.raw_post || request.query_string
+    @tickets = Ticket.similar_search(@query, :limit  =>  8)
+  end
   
   def goto
     @ticket = params[:number]
