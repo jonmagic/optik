@@ -53,7 +53,7 @@ class TicketsController < ApplicationController
 
   def similar_search
     @query = params[:query] || request.raw_post || request.query_string
-    @tickets = Ticket.similar_search(@query, :limit  =>  8)
+    @tickets = Ticket.similar_search(@query, :limit  =>  4)
     render :layout => false
   end
   
