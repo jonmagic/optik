@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(:version => 8) do
   end
 
   create_table "users", :force => true do |t|
-    t.column "login",           :string,   :limit => 80, :default => "''",   :null => false
-    t.column "salted_password", :string,   :limit => 40, :default => "''",   :null => false
-    t.column "email",           :string,   :limit => 60, :default => "''",   :null => false
+    t.column "login",           :string,   :limit => 80, :default => "",   :null => false
+    t.column "salted_password", :string,   :limit => 40, :default => "",   :null => false
+    t.column "email",           :string,   :limit => 60, :default => "",   :null => false
     t.column "firstname",       :string,   :limit => 40, :default => nil
     t.column "lastname",        :string,   :limit => 40, :default => nil
-    t.column "salt",            :string,   :limit => 40, :default => "''",   :null => false
+    t.column "salt",            :string,   :limit => 40, :default => "",   :null => false
     t.column "verified",        :integer,  :limit => 11, :default => 0
     t.column "role",            :string,   :limit => 40, :default => nil
     t.column "security_token",  :string,   :limit => 40, :default => nil

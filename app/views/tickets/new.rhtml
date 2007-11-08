@@ -12,7 +12,7 @@
 		<!-- search concatenate of fields 'ticket[description]' and 'tags' -->
 	</div>
 </div>
-<%= observe_field 'tags',
+<%= observe_field 'tags', :frequency => 1,
 					:update => 'live_similar_search',
 					:url => { :controller => 'tickets', :action=> 'similar_search' },
 					:with => "'query=' + escape(value)" %>
