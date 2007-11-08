@@ -44,13 +44,9 @@ class TicketsController < ApplicationController
   
   def search   
     @query = params[:query] || request.raw_post || request.query_string
-    @result_pages = Paginator.new self, Ticket.quicksearch(@query, :count => true), 50, @params['page']
-    @tickets = Ticket.quicksearch(@query, 
-                                  :limit  =>  @result_pages.items_per_page,
-                                  :offset =>  @result_pages.current.offset)
+    @tickets = Ticket.fullsearch(@query, :limit  =>  50)
     if @tickets.blank?
       flash[:notice] = 'No results found'
-    else
     end
     @page_title = 'Search Results'
   end

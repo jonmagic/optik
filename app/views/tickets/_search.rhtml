@@ -3,7 +3,7 @@
 	<%= start_form_tag :action => 'search' %>
 		<table class="addhorpadding">
 			<tr>
-				<td><%= text_field_tag 'query', "", "accesskey" => "f" %></td>
+				<td><%= text_field_tag 'query', params[:query], "accesskey" => "f" %></td>
 				<td><%= submit_tag "Search" %></td>
 			</tr>
 		</table>
