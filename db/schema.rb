@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(:version => 8) do
     t.column "updated_at", :datetime
   end
 
-  add_index "notes", ["id"], :name => "sqlite_autoindex_notes_1", :unique => true
-
   create_table "states", :force => true do |t|
     t.column "description", :string,                :default => nil
     t.column "priority",    :integer, :limit => 11, :default => 0
