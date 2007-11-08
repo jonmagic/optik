@@ -9,15 +9,15 @@ class Ticket < ActiveRecord::Base
       tokens = query.split
       resultshash = {}
       tokens.each do |token|
-        find_by_sql(["SELECT tickets.* FROM tickets WHERE LOWER(tickets.description) LIKE ?", '%'+token.downcase+'%']).each do |result|
+        Ticket.find_by_sql(["SELECT tickets.* FROM tickets WHERE LOWER(tickets.description) LIKE ?", '%'+token.downcase+'%']).each do |result|
           resultshash[result.id] ||= [0, nil]
           resultshash[result.id][0] += 1
           resultshash[result.id][1] = result
         end
-        find_by_sql(["SELECT notes.* FROM notes WHERE notes.content LIKE ?", '%'+token.downcase+'%']).each do |result|
+        Note.find_by_sql(["SELECT notes.* FROM notes WHERE notes.content LIKE ?", '%'+token.downcase+'%']).each do |result|
           resultshash[result.ticket_id] ||= [0, nil]
           resultshash[result.ticket_id][0] += 1
-          resultshash[result.ticket_id][1] ||= Ticket.find(result)
+          resultshash[result.ticket_id][1] ||= Ticket.find(result.ticket_id)
         end
       end
       Ticket.find_tagged_with(options.merge(:any => tokens)).each do |result|
