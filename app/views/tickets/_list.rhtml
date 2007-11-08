@@ -4,4 +4,7 @@
 	<td width="70%"><%= link_to truncate(@ticket.description, 100), :action => 'show', :id => @ticket %></td>
 	<td><%= @ticket.user.firstname %></td>
 	<td><span><%= time_ago_in_words(@ticket.updated_at) %> ago</span></td>
+<% if @delete == true -%>
+		<td><%= link_to_remote('Delete', :action => 'destroy', :id => @ticket, :confirm => "Delete this ticket FOREVER?") %></td>
+<% end -%>
 </tr>
