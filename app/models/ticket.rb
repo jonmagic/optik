@@ -11,6 +11,9 @@ class Ticket < ActiveRecord::Base
       Ticket.find_by_sql(["SELECT tickets.* FROM tickets WHERE 0" + (" OR LOWER(tickets.description) LIKE ?") * tokens.length] + tokens.map {|t| '%'+t.downcase+'%'}).each do |result|
         resultshash[result.id] ||= [0, nil]
         resultshash[result.id][0] += 1
+        x = (Time.now - result.created_at)/86400
+        y = ((-(x^2)/200)+8.49999).to_i # Makes a bump up to 8 points on a reverse-exponential scale, from 0 to 50 days old.
+        resultshash[result.id][0] += y if y > 0
         resultshash[result.id][1] = result
       end
       Note.find_by_sql(["SELECT notes.* FROM notes WHERE 0" + (" OR LOWER(notes.content) LIKE ?") * tokens.length] + tokens.map {|t| '%'+t.downcase+'%'}).each do |result|
