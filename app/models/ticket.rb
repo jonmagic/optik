@@ -44,7 +44,7 @@ class Ticket < ActiveRecord::Base
         resultshash[result.id][0] += 1
         resultshash[result.id][1] = result
       end
-      results = resultshash.keys.collect {|k| resultshash[k][1]}.sort {|a,b| a.updated_at <=> b.updated_at}
+      results = resultshash.keys.collect {|k| resultshash[k][1]}.sort {|a,b| b.updated_at <=> a.updated_at}
         offset = options.delete(:offset) || 0
         limit = options.delete(:limit) || 100000
       return results[offset..(offset+limit)]
